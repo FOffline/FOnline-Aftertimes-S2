@@ -1,0 +1,401 @@
+//
+// FOnline: 2238
+// Rotators
+//
+// towns.fos
+//
+
+#ifndef __TOWNS__
+#define __TOWNS__
+
+#define GET_CONT_POSITIONS    # (__map) { GetNearEntire(__map, ENTIRE_TC_CONT_REWARD, rx, ry); GetNearEntire(__map, ENTIRE_TC_CONT_LIMBO, lx, ly); }
+#define ADD_TOWN              # (__name, __db, __properties) ITown@ __name = CreateTown(__db); __name.__properties; AddTown(__name)
+
+#include "_entires.fos"
+#include "_macros.fos"
+#include "_maps.fos"
+#include "entire.fos"
+#include "town_h.fos"
+#include "polygon_towns.fos"
+
+array<ITown@> Towns;
+
+import ITown@ CreateTown(string Name) from "town";
+
+ITown@ GetTownByIndex(uint index)
+{
+    return Towns[index];
+}
+
+ITown@ GetTown(uint id)
+{
+    for(uint i = 0; i < Towns.length(); i++)
+    {
+        if(id == Towns[i].GetTownID())
+        {
+            return Towns[i];
+        }
+    }
+    return null;
+}
+
+uint GetTownCount()
+{
+    return Towns.length();
+}
+
+void AddTown(ITown& town)
+{
+    Towns.insertLast(town);
+}
+
+uint GetTowns(array<ITown@>@ towns)
+{
+    for(uint i = 0, j = Towns.length(); i < j; i++)
+    {
+        towns.insertLast(Towns[i]);
+    }
+    return Towns.length();
+}
+
+bool VerifyMaps(array<Map@>& maps)
+{
+    for(uint i = 0; i < maps.length(); i++)
+        if(!valid(maps[i]))
+            return false;
+    return true;
+}
+
+bool isdefault = true;
+int timemodoc;
+int timeklamath;
+int timegecko;
+int timeden;
+int timebh;
+int timeredding;
+
+void SetWindow(Critter& cr, int town, int time, int)	
+{
+	GameVar@ bestScore = GetGlobalVar(63000+town);
+		float bestScoreVar=bestScore.GetValue();
+	isdefault = false;
+	if(town == 1 )
+		{
+		if (time != 0 || time < 25)
+				{
+				timemodoc = 0;
+				bestScore += 1;
+				timemodoc = time; 
+				SetBestScore(40, null, "" + timemodoc + ":00 - " + timemodoc + ":59");
+				cr.Say(SAY_NETMSG, "TC window in Modoc set to " + timemodoc);
+				}
+				else
+				{
+				bestScore += 1;
+				SetBestScore(40, null, "Anytime");
+				cr.Say(SAY_NETMSG, "TC window in Modoc set to anytime");
+				}
+		}	
+	if(town == 2 )
+		{
+		if (time != 0 || time < 25)
+				{
+				timeklamath = 0;
+				bestScore += 1;
+				timeklamath = time; 
+				SetBestScore(41, null, "" + timeklamath + ":00 - " + timeklamath + ":59");
+				cr.Say(SAY_NETMSG, "TC window in klamath set to " + timeklamath);
+				}
+				else
+				{
+				bestScore += 1;
+				SetBestScore(41, null, "Anytime");
+				cr.Say(SAY_NETMSG, "TC window in klamath set to anytime");
+				}
+		}
+	if(town == 3 )
+		{
+		if (time != 0 || time < 25)
+				{
+				timegecko = 0;
+				bestScore += 1;
+				timegecko = time; 
+				SetBestScore(42, null, "" + timegecko + ":00 - " + timegecko + ":59");
+				cr.Say(SAY_NETMSG, "TC window in gecko set to " + timegecko);
+				}
+				else
+				{
+				bestScore += 1;
+				SetBestScore(42, null, "Anytime");
+				cr.Say(SAY_NETMSG, "TC window in gecko set to anytime");
+				}
+		}
+	if(town == 4 )
+		{
+		if (time != 0 || time < 25)
+				{
+				timebh = 0;
+				bestScore += 1;
+				timebh = time; 
+				SetBestScore(43, null, "" + timebh + ":00 - " + timebh + ":59");
+				cr.Say(SAY_NETMSG, "TC window in bh set to " + timebh);
+				}
+				else
+				{
+				bestScore += 1;
+				SetBestScore(43, null, "Anytime");
+				cr.Say(SAY_NETMSG, "TC window in bh set to anytime");
+				}
+		}
+	if(town == 5 )
+		{
+		if (time != 0 || time < 25)
+				{
+				timeden = 0;
+				bestScore += 1;
+				timeden = time; 
+				SetBestScore(44, null, "" + timeden + ":00 - " + timeden + ":59");
+				cr.Say(SAY_NETMSG, "TC window in den set to " + timeden);
+				}
+				else
+				{
+				bestScore += 1;
+				SetBestScore(44, null, "Anytime");
+				cr.Say(SAY_NETMSG, "TC window in den set to anytime");
+				}
+		}
+	if(town == 6 )
+		{
+		if (time != 0 || time < 25)
+				{
+				timeredding = 0;
+				bestScore += 1;
+				timeredding = time; 
+				SetBestScore(45, null, "" + timeredding + ":00 - " + timeredding + ":59");
+				cr.Say(SAY_NETMSG, "TC window in redding set to " + timeredding);
+				}
+				else
+				{
+				bestScore += 1;
+				SetBestScore(45, null, "Anytime");
+				cr.Say(SAY_NETMSG, "TC window in redding set to anytime");
+				}
+			
+		}
+	InitTowns(timemodoc, timeklamath, timebh, timeredding, timeden, timegecko, isdefault);
+}
+
+void InitTowns(int timemodoc, int timeklamath, int timebh, int timeredding, int timeden, int timegecko, bool isdefault)
+{
+    Map@ map_modoc = GetMapByPid(MAP_ModocLarge, 0);
+    Map@ map_klamath = GetMapByPid(MAP_KlamathDowntown, 0);
+    Map@ map_broken = GetMapByPid(MAP_BrokenHills, 0);
+    Map@ map_redding = GetMapByPid(MAP_Redding, 0);
+    Map@ map_den = GetMapByPid(MAP_DenBusiness, 0);
+    Map@ map_gecko = GetMapByPid(MAP_GeckoSettlement, 0);
+
+    Map@[] maps = { map_modoc, map_klamath, map_broken, map_redding, map_den, map_gecko };
+	if(isdefault)
+	{
+	timemodoc = 0;
+	timeklamath = 19;
+	timegecko = 23;
+	timebh = 20;
+	timeden = 22;
+	timeredding = 21;
+	SetBestScore(40, null, "Anytime");
+	SetBestScore(41, null, "" + timeklamath + ":00 - " + timeklamath + ":59");
+	SetBestScore(42, null, "" + timegecko + ":00 - " + timegecko + ":59");
+	SetBestScore(43, null, "" + timebh + ":00 - " + timebh + ":59");
+	SetBestScore(44, null, "" + timeden + ":00 - " + timeden + ":59");
+	SetBestScore(45, null, "" + timeredding + ":00 - " + timeredding + ":59");
+	}
+    if(!VerifyMaps(maps))
+    {
+        Log("Error while finding TC maps, the TC system in some towns may fail to work properly");
+    }
+
+    uint16 rx, ry, lx, ly;
+    rx = ry = lx = ly = 0;
+
+    GET_CONT_POSITIONS(map_modoc);
+	/*Critter@ jo = map_modoc.GetCritter(189, 181);
+	int windowhour = GetManualhour();
+	if ( windowhour == 0 )
+		windowhour = 21;*/
+    // Modoc
+    IPolygon@ modoc_area = NewPolygon();
+    modoc_area.AddVertices(modoc_area_v);
+    ADD_TOWN(Modoc, "Modoc", SetMapID(map_modoc.Id)
+             .SetTownID(1)
+             .SetBaseRewardValue(9)
+             #ifdef __DEBUG__
+             .SetNearbyMemberRequirement(1)
+             .SetTotalMemberRequirement(1)
+             .SetInfluenceMemberRequirement(1)
+             #endif
+
+             #ifndef __DEBUG__
+			 .SetNearbyMemberRequirement(3)
+             .SetTotalMemberRequirement(3)
+             .SetInfluenceMemberRequirement(99)
+             #endif
+             .SetSpeechModifier(0)
+             .SetLimboContainer(map_modoc.GetItem(lx, ly, PID_FOOTLOCKER_CLEAN_LEFT))
+             .SetRewardContainer(map_modoc.GetItem(rx, ry, PID_FOOTLOCKER_CLEAN_RIGHT))
+             .SetHour(timemodoc)
+             .SetCaptureArea(modoc_area)    // General store + church + area near well and water tank
+             .SetRewardStartCaps(900)
+             .SetVersion(TOWN_VERSION_CAPTURE_COUNTDOWN)
+			 .SetMilitiaEnabled()
+             );
+
+    GET_CONT_POSITIONS(map_klamath);
+
+    // Klamath
+    IPolygon@ klamath_area = NewPolygon();
+    klamath_area.AddVertices(klamath_area_v);
+    ADD_TOWN(Klamath, "Klamath", SetMapID(map_klamath.Id)
+             .SetTownID(2)
+             .SetBaseRewardValue(9)
+             #ifdef __DEBUG__
+             .SetNearbyMemberRequirement(1)
+             .SetTotalMemberRequirement(1)
+             #endif
+
+             #ifndef __DEBUG__
+             .SetNearbyMemberRequirement(3)
+             .SetTotalMemberRequirement(3)
+             #endif
+             .SetSpeechModifier(0)
+             .SetLimboContainer(map_klamath.GetItem(lx, ly, PID_FOOTLOCKER_CLEAN_LEFT))
+             .SetRewardContainer(map_klamath.GetItem(rx, ry, PID_FOOTLOCKER_CLEAN_LEFT))
+             .SetHour(timeklamath)
+             .SetCaptureArea(klamath_area)
+             .SetRewardStartCaps(1350)
+             .SetInfluenceMemberRequirement(99)
+             .SetVersion(TOWN_VERSION_CAPTURE_COUNTDOWN_WINDOW)
+			 .SetMilitiaEnabled()
+             );
+
+    GET_CONT_POSITIONS(map_gecko);
+
+    // Gecko
+    IPolygon@ gecko_area = NewPolygon();
+    gecko_area.AddVertices(gecko_area_v);
+    ADD_TOWN(Gecko, "Gecko", SetMapID(map_gecko.Id)
+             .SetTownID(3)
+             .SetBaseRewardValue(9)
+             #ifdef __DEBUG__
+             .SetNearbyMemberRequirement(1)
+             .SetTotalMemberRequirement(1)
+             #endif
+
+             #ifndef __DEBUG__
+			 .SetNearbyMemberRequirement(3)
+             .SetTotalMemberRequirement(3)
+             #endif
+             .SetSpeechModifier(0)
+             .SetLimboContainer(map_gecko.GetItem(lx, ly, PID_FOOTLOCKER_CLEAN_LEFT))
+             .SetRewardContainer(map_gecko.GetItem(rx, ry, PID_FOOTLOCKER_CLEAN_RIGHT))
+             .SetHour(timegecko)
+             .SetCaptureArea(gecko_area)
+
+             .SetRewardStartCaps(1500)
+             .SetInfluenceMemberRequirement(99)
+             .SetVersion(TOWN_VERSION_CAPTURE_COUNTDOWN_WINDOW)
+			 .SetMilitiaEnabled()
+             );
+
+    GET_CONT_POSITIONS(map_broken);
+
+    // Broken Hills
+    IPolygon@ bh_area = NewPolygon();
+    bh_area.AddVertices(bh_area_v);
+    ADD_TOWN(Broken, "Broken Hills", SetMapID(map_broken.Id)
+             .SetTownID(4)
+             .SetBaseRewardValue(11)
+             #ifdef __DEBUG__
+             .SetNearbyMemberRequirement(5)
+             .SetTotalMemberRequirement(5)
+             #endif
+
+             #ifndef __DEBUG__
+             .SetNearbyMemberRequirement(5)
+             .SetTotalMemberRequirement(5)
+             #endif
+             .SetSpeechModifier(0)
+             .SetLimboContainer(map_broken.GetItem(lx, ly, PID_FOOTLOCKER_CLEAN_LEFT))
+             .SetRewardContainer(map_broken.GetItem(rx, ry, PID_FOOTLOCKER_CLEAN_RIGHT))
+             .SetHour(timebh)
+             .SetCaptureArea(bh_area)
+             .SetRewardStartCaps(2000)
+             .SetInfluenceMemberRequirement(99)
+             .SetVersion(TOWN_VERSION_CAPTURE_COUNTDOWN_WINDOW)
+			 .SetMilitiaEnabled()
+             );
+
+    GET_CONT_POSITIONS(map_den);
+
+    // Den
+    IPolygon@ den_area = NewPolygon();
+    den_area.AddVertices(den_area_v);
+    ADD_TOWN(Den, "Den", SetMapID(map_den.Id)
+             .SetTownID(5)
+             .SetBaseRewardValue(9)
+             #ifdef __DEBUG__
+             .SetNearbyMemberRequirement(1)
+             .SetTotalMemberRequirement(1)
+             #endif
+
+             #ifndef __DEBUG__
+             .SetNearbyMemberRequirement(3)
+             .SetTotalMemberRequirement(3)
+             #endif
+             .SetSpeechModifier(0)
+             .SetLimboContainer(map_den.GetItem(lx, ly, PID_FOOTLOCKER_CLEAN_LEFT))
+             .SetRewardContainer(map_den.GetItem(rx, ry, PID_FOOTLOCKER_CLEAN_LEFT))
+             .SetHour(timeden)
+             .SetCaptureArea(den_area)
+             .SetRewardStartCaps(1500)
+             .SetInfluenceMemberRequirement(99)
+             .SetVersion(TOWN_VERSION_CAPTURE_COUNTDOWN)
+			 .SetMilitiaEnabled()
+             );
+
+    GET_CONT_POSITIONS(map_redding);
+
+    // Redding
+    IPolygon@ redding_area = NewPolygon();
+    redding_area.AddVertices(redding_area_v);
+    ADD_TOWN(Redding, "Redding", SetMapID(map_redding.Id)
+             .SetTownID(6)
+             .SetBaseRewardValue(11)
+             #ifdef __DEBUG__
+             .SetNearbyMemberRequirement(1)
+             .SetTotalMemberRequirement(1)
+             #endif
+
+             #ifndef __DEBUG__
+             .SetNearbyMemberRequirement(5)
+             .SetTotalMemberRequirement(5)
+             #endif
+             .SetSpeechModifier(0)
+             .SetLimboContainer(map_redding.GetItem(lx, ly, PID_FOOTLOCKER_CLEAN_LEFT))
+             .SetRewardContainer(map_redding.GetItem(rx, ry, PID_FOOTLOCKER_CLEAN_RIGHT))
+             .SetHour(timeredding)
+             .SetCaptureArea(redding_area)
+             .SetRewardStartCaps(1700)
+             .SetInfluenceMemberRequirement(99)
+             .SetVersion(TOWN_VERSION_CAPTURE_COUNTDOWN_WINDOW)
+			 .SetMilitiaEnabled()
+             );
+
+    for(uint i = 0; i < Towns.length(); i++)
+    {
+        Towns[i].SetScore();
+    }
+
+    InitMilitia();
+}
+#endif

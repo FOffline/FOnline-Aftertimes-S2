@@ -1,0 +1,248 @@
+[00:000] FOnline server, version 0520-F8.
+[01:305] ***   Starting initialization   ****
+[01:319] Script system initialization...
+[01:383] Reload scripts...
+[53:182] Reload scripts complete.
+[53:182] Bind reserved functions...
+[53:193] Bind reserved functions complete.
+[53:193] Script system initialization complete.
+[53:193] Loading language packs...
+[53:230] Loading language packs complete, loaded<1> packs.
+[53:230] Reload client scripts...
+[55:713] Script message: client_gui : Info : Compiling bool GUI_KeyDown(uint8, string&inout) : 13081, 1.
+[55:713] Script message: client_gui : Error : No matching signatures to 'GUIScreen::KeyPress(uint8, string&)' : 13087, 29.
+[55:714] Script message: client_gui : Error : No conversion from 'int' to 'bool' available. : 13087, 1.
+[55:719] Script::LoadScript - Unable to Build module<client_gui>, result<-1>.
+[55:719] FOServer::ReloadClientScripts - Unable to load client script<client_gui>.
+[58:877] Script message: radio : Info : Compiling bool TextboxChannel::KeyDown(uint8) : 14777, 1.
+[58:877] Script message: radio : Error : No matching signatures to 'CTextBox::KeyDown(uint8)' : 14783, 1.
+[58:877] Script message: radio : Info : Candidates are: : 14783, 1.
+[58:877] Script message: radio : Info : bool CTextBox::KeyDown(uint8, string&inout) : 14783, 1.
+[58:883] Script::LoadScript - Unable to Build module<radio>, result<-1>.
+[58:883] FOServer::ReloadClientScripts - Unable to load client script<radio>.
+[01:00:164] Script::BindImportedFunctions - Fail to bind imported functions, module<chosen_tabs>, error<-19>.
+[01:00:165] Script message: System function : Error : Identifier 'IGUIScreenOpt' is not a data type : 1, 1.
+[01:00:165] Script message: System function : Error : Identifier 'IGUIScreenOpt' is not a data type : 1, 1.
+[01:00:165] Script message: System function : Error : Identifier 'IGUIElementTextOpt' is not a data type : 1, 1.
+[01:00:165] Script message: System function : Error : Identifier 'IGUIElementTextOpt' is not a data type : 1, 1.
+[01:00:165] Script message: System function : Error : Identifier 'IGUIElementImageOpt' is not a data type : 1, 1.
+[01:00:165] Script message: System function : Error : Identifier 'IGUIElementImageOpt' is not a data type : 1, 1.
+[01:00:165] Script message: System function : Error : Identifier 'IGUIElementButtonOpt' is not a data type : 1, 1.
+[01:00:165] Script message: System function : Error : Identifier 'IGUIElementButtonOpt' is not a data type : 1, 1.
+[01:00:165] Script message: System function : Error : Identifier 'IGUIScreenOpt' is not a data type : 1, 1.
+[01:00:165] Script::BindImportedFunctions - Fail to bind imported functions, module<client_container_addons>, error<-19>.
+[01:00:167] Script message: System function : Error : Identifier 'IGUIScreenOpt' is not a data type : 1, 1.
+[01:00:167] Script message: System function : Error : Identifier 'IGUIScreenOpt' is not a data type : 1, 1.
+[01:00:167] Script message: System function : Error : Identifier 'IGUIElementTextOpt' is not a data type : 1, 1.
+[01:00:167] Script message: System function : Error : Identifier 'IGUIElementTextOpt' is not a data type : 1, 1.
+[01:00:167] Script message: System function : Error : Identifier 'IGUIElementImageOpt' is not a data type : 1, 1.
+[01:00:167] Script message: System function : Error : Identifier 'IGUIElementImageOpt' is not a data type : 1, 1.
+[01:00:167] Script message: System function : Error : Identifier 'IGUIElementButtonOpt' is not a data type : 1, 1.
+[01:00:167] Script message: System function : Error : Identifier 'IGUIElementButtonOpt' is not a data type : 1, 1.
+[01:00:167] Script message: System function : Error : Identifier 'IGUIScreenOpt' is not a data type : 1, 1.
+[01:00:167] Script::BindImportedFunctions - Fail to bind imported functions, module<client_dev_menu>, error<-19>.
+[01:00:167] Script message: System function : Error : Identifier 'IGUIScreenOpt' is not a data type : 1, 1.
+[01:00:167] Script message: System function : Error : Identifier 'IGUIScreenOpt' is not a data type : 1, 1.
+[01:00:168] Script message: System function : Error : Identifier 'IGUIElementTextOpt' is not a data type : 1, 1.
+[01:00:168] Script message: System function : Error : Identifier 'IGUIElementTextOpt' is not a data type : 1, 1.
+[01:00:168] Script message: System function : Error : Identifier 'IGUIElementImageOpt' is not a data type : 1, 1.
+[01:00:168] Script message: System function : Error : Identifier 'IGUIElementImageOpt' is not a data type : 1, 1.
+[01:00:168] Script message: System function : Error : Identifier 'IGUIElementButtonOpt' is not a data type : 1, 1.
+[01:00:168] Script message: System function : Error : Identifier 'IGUIElementButtonOpt' is not a data type : 1, 1.
+[01:00:168] Script message: System function : Error : Identifier 'IGUIScreenOpt' is not a data type : 1, 1.
+[01:00:168] Script::BindImportedFunctions - Fail to bind imported functions, module<client_fixboy>, error<-19>.
+[01:00:168] Script message: System function : Error : Identifier 'IGUIScreenOpt' is not a data type : 1, 1.
+[01:00:168] Script message: System function : Error : Identifier 'IGUIScreenOpt' is not a data type : 1, 1.
+[01:00:168] Script message: System function : Error : Identifier 'IGUIElementTextOpt' is not a data type : 1, 1.
+[01:00:169] Script message: System function : Error : Identifier 'IGUIElementTextOpt' is not a data type : 1, 1.
+[01:00:169] Script message: System function : Error : Identifier 'IGUIElementImageOpt' is not a data type : 1, 1.
+[01:00:169] Script message: System function : Error : Identifier 'IGUIElementImageOpt' is not a data type : 1, 1.
+[01:00:169] Script message: System function : Error : Identifier 'IGUIElementButtonOpt' is not a data type : 1, 1.
+[01:00:169] Script message: System function : Error : Identifier 'IGUIElementButtonOpt' is not a data type : 1, 1.
+[01:00:169] Script message: System function : Error : Identifier 'IGUIScreenOpt' is not a data type : 1, 1.
+[01:00:169] Script::BindImportedFunctions - Fail to bind imported functions, module<client_followers_menu>, error<-19>.
+[01:00:169] Script message: System function : Error : Identifier 'IGUIScreenOpt' is not a data type : 1, 1.
+[01:00:169] Script message: System function : Error : Identifier 'IGUIScreenOpt' is not a data type : 1, 1.
+[01:00:169] Script message: System function : Error : Identifier 'IGUIElementTextOpt' is not a data type : 1, 1.
+[01:00:169] Script message: System function : Error : Identifier 'IGUIElementTextOpt' is not a data type : 1, 1.
+[01:00:169] Script message: System function : Error : Identifier 'IGUIElementImageOpt' is not a data type : 1, 1.
+[01:00:169] Script message: System function : Error : Identifier 'IGUIElementImageOpt' is not a data type : 1, 1.
+[01:00:169] Script message: System function : Error : Identifier 'IGUIElementButtonOpt' is not a data type : 1, 1.
+[01:00:169] Script message: System function : Error : Identifier 'IGUIElementButtonOpt' is not a data type : 1, 1.
+[01:00:169] Script message: System function : Error : Identifier 'IGUIScreenOpt' is not a data type : 1, 1.
+[01:00:169] Script::BindImportedFunctions - Fail to bind imported functions, module<client_fov>, error<-19>.
+[01:00:170] Script::BindImportedFunctions - Fail to bind imported functions, module<client_gmtools>, error<-19>.
+[01:00:171] Script message: System function : Error : Identifier 'IGUIScreenOpt' is not a data type : 1, 1.
+[01:00:171] Script message: System function : Error : Identifier 'IGUIScreenOpt' is not a data type : 1, 1.
+[01:00:171] Script message: System function : Error : Identifier 'IGUIElementTextOpt' is not a data type : 1, 1.
+[01:00:171] Script message: System function : Error : Identifier 'IGUIElementTextOpt' is not a data type : 1, 1.
+[01:00:171] Script message: System function : Error : Identifier 'IGUIElementImageOpt' is not a data type : 1, 1.
+[01:00:171] Script message: System function : Error : Identifier 'IGUIElementImageOpt' is not a data type : 1, 1.
+[01:00:171] Script message: System function : Error : Identifier 'IGUIElementButtonOpt' is not a data type : 1, 1.
+[01:00:171] Script message: System function : Error : Identifier 'IGUIElementButtonOpt' is not a data type : 1, 1.
+[01:00:171] Script message: System function : Error : Identifier 'IGUIScreenOpt' is not a data type : 1, 1.
+[01:00:171] Script::BindImportedFunctions - Fail to bind imported functions, module<client_gmtools_menu>, error<-19>.
+[01:00:171] Script message: System function : Error : Identifier 'IGUIScreenOpt' is not a data type : 1, 1.
+[01:00:171] Script message: System function : Error : Identifier 'IGUIScreenOpt' is not a data type : 1, 1.
+[01:00:171] Script message: System function : Error : Identifier 'IGUIElementTextOpt' is not a data type : 1, 1.
+[01:00:171] Script message: System function : Error : Identifier 'IGUIElementTextOpt' is not a data type : 1, 1.
+[01:00:171] Script message: System function : Error : Identifier 'IGUIElementImageOpt' is not a data type : 1, 1.
+[01:00:171] Script message: System function : Error : Identifier 'IGUIElementImageOpt' is not a data type : 1, 1.
+[01:00:172] Script message: System function : Error : Identifier 'IGUIElementButtonOpt' is not a data type : 1, 1.
+[01:00:172] Script message: System function : Error : Identifier 'IGUIElementButtonOpt' is not a data type : 1, 1.
+[01:00:172] Script message: System function : Error : Identifier 'IGUIScreenOpt' is not a data type : 1, 1.
+[01:00:172] Script::BindImportedFunctions - Fail to bind imported functions, module<client_interface>, error<-19>.
+[01:00:173] Script message: System function : Error : Identifier 'IGUIScreenOpt' is not a data type : 1, 1.
+[01:00:173] Script message: System function : Error : Identifier 'IGUIScreenOpt' is not a data type : 1, 1.
+[01:00:173] Script message: System function : Error : Identifier 'IGUIElementTextOpt' is not a data type : 1, 1.
+[01:00:173] Script message: System function : Error : Identifier 'IGUIElementTextOpt' is not a data type : 1, 1.
+[01:00:173] Script message: System function : Error : Identifier 'IGUIElementImageOpt' is not a data type : 1, 1.
+[01:00:173] Script message: System function : Error : Identifier 'IGUIElementImageOpt' is not a data type : 1, 1.
+[01:00:173] Script message: System function : Error : Identifier 'IGUIElementButtonOpt' is not a data type : 1, 1.
+[01:00:173] Script message: System function : Error : Identifier 'IGUIElementButtonOpt' is not a data type : 1, 1.
+[01:00:173] Script message: System function : Error : Identifier 'IGUIScreenOpt' is not a data type : 1, 1.
+[01:00:174] Script::BindImportedFunctions - Fail to bind imported functions, module<client_io>, error<-19>.
+[01:00:174] Script::BindImportedFunctions - Fail to bind imported functions, module<client_keybinds>, error<-19>.
+[01:00:175] Script message: System function : Error : Identifier 'IGUIScreenOpt' is not a data type : 1, 1.
+[01:00:175] Script message: System function : Error : Identifier 'IGUIScreenOpt' is not a data type : 1, 1.
+[01:00:175] Script message: System function : Error : Identifier 'IGUIElementTextOpt' is not a data type : 1, 1.
+[01:00:175] Script message: System function : Error : Identifier 'IGUIElementTextOpt' is not a data type : 1, 1.
+[01:00:175] Script message: System function : Error : Identifier 'IGUIElementImageOpt' is not a data type : 1, 1.
+[01:00:175] Script message: System function : Error : Identifier 'IGUIElementImageOpt' is not a data type : 1, 1.
+[01:00:175] Script message: System function : Error : Identifier 'IGUIElementButtonOpt' is not a data type : 1, 1.
+[01:00:175] Script message: System function : Error : Identifier 'IGUIElementButtonOpt' is not a data type : 1, 1.
+[01:00:175] Script message: System function : Error : Identifier 'IGUIScreenOpt' is not a data type : 1, 1.
+[01:00:176] Script::BindImportedFunctions - Fail to bind imported functions, module<client_main>, error<-19>.
+[01:00:178] Script message: System function : Error : Identifier 'IGUIScreenOpt' is not a data type : 1, 1.
+[01:00:178] Script message: System function : Error : Identifier 'IGUIScreenOpt' is not a data type : 1, 1.
+[01:00:178] Script message: System function : Error : Identifier 'IGUIElementTextOpt' is not a data type : 1, 1.
+[01:00:178] Script message: System function : Error : Identifier 'IGUIElementTextOpt' is not a data type : 1, 1.
+[01:00:178] Script message: System function : Error : Identifier 'IGUIElementImageOpt' is not a data type : 1, 1.
+[01:00:178] Script message: System function : Error : Identifier 'IGUIElementImageOpt' is not a data type : 1, 1.
+[01:00:178] Script message: System function : Error : Identifier 'IGUIElementButtonOpt' is not a data type : 1, 1.
+[01:00:178] Script message: System function : Error : Identifier 'IGUIElementButtonOpt' is not a data type : 1, 1.
+[01:00:178] Script message: System function : Error : Identifier 'IGUIScreenOpt' is not a data type : 1, 1.
+[01:00:179] Script::BindImportedFunctions - Fail to bind imported functions, module<client_online_stats>, error<-19>.
+[01:00:179] Script message: System function : Error : Identifier 'IGUIScreenOpt' is not a data type : 1, 1.
+[01:00:179] Script message: System function : Error : Identifier 'IGUIScreenOpt' is not a data type : 1, 1.
+[01:00:179] Script message: System function : Error : Identifier 'IGUIElementTextOpt' is not a data type : 1, 1.
+[01:00:179] Script message: System function : Error : Identifier 'IGUIElementTextOpt' is not a data type : 1, 1.
+[01:00:179] Script message: System function : Error : Identifier 'IGUIElementImageOpt' is not a data type : 1, 1.
+[01:00:179] Script message: System function : Error : Identifier 'IGUIElementImageOpt' is not a data type : 1, 1.
+[01:00:179] Script message: System function : Error : Identifier 'IGUIElementButtonOpt' is not a data type : 1, 1.
+[01:00:179] Script message: System function : Error : Identifier 'IGUIElementButtonOpt' is not a data type : 1, 1.
+[01:00:179] Script message: System function : Error : Identifier 'IGUIScreenOpt' is not a data type : 1, 1.
+[01:00:179] Script::BindImportedFunctions - Fail to bind imported functions, module<client_screens>, error<-19>.
+[01:00:181] Script::BindImportedFunctions - Fail to bind imported functions, module<parameters>, error<-19>.
+[01:00:181] Script::BindImportedFunctions - Fail to bind imported functions, module<client_critter_onhead>, error<-19>.
+[01:00:182] Script message: System function : Error : Identifier 'IGUIScreenOpt' is not a data type : 1, 1.
+[01:00:182] Script message: System function : Error : Identifier 'IGUIScreenOpt' is not a data type : 1, 1.
+[01:00:182] Script message: System function : Error : Identifier 'IGUIElementTextOpt' is not a data type : 1, 1.
+[01:00:182] Script message: System function : Error : Identifier 'IGUIElementTextOpt' is not a data type : 1, 1.
+[01:00:182] Script message: System function : Error : Identifier 'IGUIElementImageOpt' is not a data type : 1, 1.
+[01:00:182] Script message: System function : Error : Identifier 'IGUIElementImageOpt' is not a data type : 1, 1.
+[01:00:182] Script message: System function : Error : Identifier 'IGUIElementButtonOpt' is not a data type : 1, 1.
+[01:00:182] Script message: System function : Error : Identifier 'IGUIElementButtonOpt' is not a data type : 1, 1.
+[01:00:182] Script message: System function : Error : Identifier 'IGUIScreenOpt' is not a data type : 1, 1.
+[01:00:182] Script::BindImportedFunctions - Fail to bind imported functions, module<fo2077_client_screen_gameinfo>, error<-19>.
+[01:00:182] Script message: System function : Error : Identifier 'IGUIScreenOpt' is not a data type : 1, 1.
+[01:00:182] Script message: System function : Error : Identifier 'IGUIScreenOpt' is not a data type : 1, 1.
+[01:00:182] Script message: System function : Error : Identifier 'IGUIElementTextOpt' is not a data type : 1, 1.
+[01:00:182] Script message: System function : Error : Identifier 'IGUIElementTextOpt' is not a data type : 1, 1.
+[01:00:182] Script message: System function : Error : Identifier 'IGUIElementImageOpt' is not a data type : 1, 1.
+[01:00:182] Script message: System function : Error : Identifier 'IGUIElementImageOpt' is not a data type : 1, 1.
+[01:00:182] Script message: System function : Error : Identifier 'IGUIElementButtonOpt' is not a data type : 1, 1.
+[01:00:182] Script message: System function : Error : Identifier 'IGUIElementButtonOpt' is not a data type : 1, 1.
+[01:00:182] Script message: System function : Error : Identifier 'IGUIScreenOpt' is not a data type : 1, 1.
+[01:00:182] Script::BindImportedFunctions - Fail to bind imported functions, module<fo2077_client_screen_tag>, error<-19>.
+[01:00:397] Reload client scripts complete.
+[01:00:397] Indexing client data.
+[01:00:398] Clients data not found.
+[01:00:398] AI manager initialization...
+[01:00:398] Find bags...
+[01:00:435] Loaded<291> bags.
+[01:00:435] AI manager initialization complete.
+[01:00:435] Item manager initialization...
+[01:00:442] Item manager initialization complete.
+[01:00:442] Critter manager initialization...
+[01:00:468] Critter manager initialization complete.
+[01:00:468] Map manager initialization...
+[01:00:471] Map manager initialization complete.
+[01:00:471] Var manager initialization.
+[01:00:471] Update template vars...
+[01:00:481] Update template vars complete.
+[01:00:481] Var manager initialization complete.
+[01:00:481] Load Dialogs...[01:00:481] from list<dialogs.lst>.
+[01:00:851] Loading dialogs finish, loaded<831/831>.
+[01:00:901] FixBoy load crafts...
+[01:00:915] FixBoy load crafts complete.
+[01:00:918] Loaded<168> critter types.
+[01:00:937] Loading items prototypes...
+[01:01:518] ConstantsManager::GetDefineValue - Define<> not found, taked zero by default.
+[01:02:016] Items prototypes successfully loaded, count<6185>.
+[01:02:016] Loading critters prototypes...
+[01:02:049] Loaded<681> critter protos, errors<0>.
+[01:02:049] Load location and map prototypes...
+[01:12:382] Load location and map prototypes complete, loaded<228> location protos.
+[01:12:398] Script callback: Init blueprints. : blueprints : void InitBlueprints() : 8892, 1 : FOServer::InitReal : Game.
+[01:12:409] Script callback: Found 9 blueprints of level 0 : blueprints : void InitBlueprints() : 8910, 1 : FOServer::InitReal : Game.
+[01:12:409] Script callback: Found 14 blueprints of level 1 : blueprints : void InitBlueprints() : 8910, 1 : FOServer::InitReal : Game.
+[01:12:409] Script callback: Found 14 blueprints of level 2 : blueprints : void InitBlueprints() : 8910, 1 : FOServer::InitReal : Game.
+[01:12:409] Script callback: Found 7 blueprints of level 3 : blueprints : void InitBlueprints() : 8910, 1 : FOServer::InitReal : Game.
+[01:12:409] Script callback: Found 24 blueprints of level 4 : blueprints : void InitBlueprints() : 8910, 1 : FOServer::InitReal : Game.
+[01:12:409] Script callback: Found 11 blueprints of level 5 : blueprints : void InitBlueprints() : 8910, 1 : FOServer::InitReal : Game.
+[01:12:540] Begin load world from dump file<save\world0006.fo>.
+[01:12:540] Load game info...[01:12:540] complete.
+[01:12:540] Load locations...
+[01:12:545] Load locations complete, count<76>.
+[01:12:545] Load npc...
+[01:12:614] Load npc complete, count<3981>.
+[01:12:614] Load items...[01:12:832] complete, count<21777>.
+[01:12:832] Load vars...[01:13:047] complete, count<34041>.
+[01:13:048] Load time events...[01:13:049] complete, count<12>.
+[01:13:059] Transfer all npc to game...
+[01:13:686] Transfer npc complete. Errors<0>.
+[01:13:687] Transfer all items to npc, maps and containers...
+[01:13:744] Transfer game items complete.
+[01:13:747] Script callback: Arenas init finish, arenas: 4, rooms: 2 : arena : void InitArenas(Map&inout) : 15592, 1 : Map::ParseScript : Map id<144>, pid<3>.
+[01:13:800] Script callback: ERR: Couldn't read AnyData array : vaul_guard : QuestPool::QuestPool(uint) : 13474, 1 : Critter::ParseScript : Npc (vaul_guard, 5000393).
+[01:13:813] Script callback: ERR: Couldn't read AnyData array : vaul_guard : QuestPool::QuestPool(uint) : 13474, 1 : Critter::ParseScript : Npc (vaul_lilly, 5000477).
+[01:14:736] Starting server on port<2238>.
+[01:14:736] Starting net listen thread.
+[01:14:736] Starting net work threads, count<3>.
+[01:14:981] Script callback: Encounter groups loaded. : worldmap : void WorldmapInit() : 19456, 1 : FOServer::InitReal : Game.
+[01:15:654] Script callback: Empty line : worldmap : bool LoadWorldmapTables(string@) : 16527, 1 : FOServer::InitReal : Game.
+[01:15:654] Script callback: Worldmap loaded. : worldmap : void WorldmapInit() : 19463, 1 : FOServer::InitReal : Game.
+[01:15:654] Script callback: Reading defines : utils : void ReadDefines(string@, dictionary&inout, string[]@) : 15381, 1 : FOServer::InitReal : Game.
+[01:15:656] Script callback: Read 1318 lines : utils : void ReadDefines(string@, dictionary&inout, string[]@) : 15392, 1 : FOServer::InitReal : Game.
+[01:15:686] Script callback: Reading defines : utils : void ReadDefines(string@, dictionary&inout, string[]@) : 15381, 1 : FOServer::InitReal : Game.
+[01:15:689] Script callback: Read 2806 lines : utils : void ReadDefines(string@, dictionary&inout, string[]@) : 15392, 1 : FOServer::InitReal : Game.
+[01:15:706] Script callback: Reading defines : utils : void ReadDefines(string@, dictionary&inout, string[]@) : 15381, 1 : FOServer::InitReal : Game.
+[01:15:706] Script callback: Read 231 lines : utils : void ReadDefines(string@, dictionary&inout, string[]@) : 15392, 1 : FOServer::InitReal : Game.
+[01:15:710] Script callback: Reading defines : utils : void ReadDefines(string@, dictionary&inout, string[]@) : 15381, 1 : FOServer::InitReal : Game.
+[01:15:710] Script callback: Read 174 lines : utils : void ReadDefines(string@, dictionary&inout, string[]@) : 15392, 1 : FOServer::InitReal : Game.
+[01:15:713] Script callback: Initializing factions names lookup : factions : void InitFactionsNames() : 12073, 1 : FOServer::InitReal : Game.
+[01:15:713] Script callback: Reading strings from filetext/engl/fotext.msg : factions : void ReadMsgStrings(string@, int, int) : 12087, 1 : FOServer::InitReal : Game.
+[01:15:718] Script callback: Read 3831 lines : factions : void ReadMsgStrings(string@, int, int) : 12098, 1 : FOServer::InitReal : Game.
+[01:15:881] Script callback: factions WARN: Faction name: The Mordinos is already assigned : debug : void WLog(string&inout, string&inout, int) : 9614, 1 : FOServer::InitReal : Game.
+[01:15:883] Script callback: Reading PIDs : utils : bool ReadPids(int[]&out, bool) : 15330, 1 : FOServer::InitReal : Game.
+[01:15:886] Script callback: Read 1318 lines : utils : bool ReadPids(int[]&out, bool) : 15340, 1 : FOServer::InitReal : Game.
+[01:15:913] Script callback: Economy initialized successfully. : economy : void InitEconomy() : 21093, 1 : FOServer::InitReal : Game.
+[01:15:914] Script callback: Merc event already exists : mercs : void InitMercs() : 13124, 1 : FOServer::InitReal : Game.
+[01:15:996] Script callback: npc_schedule WARN: Overriding hardcoded schedule prototype : Radiated AI[1] : debug : void WLog(string&inout, string&inout, int) : 9614, 1 : FOServer::InitReal : Game.
+[01:16:033] Script callback: npc_schedule WARN: Overriding hardcoded schedule prototype : Grave Keeper[100] : debug : void WLog(string&inout, string&inout, int) : 9614, 1 : FOServer::InitReal : Game.
+[01:16:036] Script callback: npc_schedule WARN: Overriding hardcoded schedule prototype : Jail: emitters[101] : debug : void WLog(string&inout, string&inout, int) : 9614, 1 : FOServer::InitReal : Game.
+[01:16:037] Script callback: Initialized npc schedules (3 prototypes, 0 instances) : npc_schedule : void InitNpcSchedules() : 18805, 1 : FOServer::InitReal : Game.
+[01:16:037] Script callback: Initializing patrol routes : patrolroutes : void InitRoutes() : 12289, 1 : FOServer::InitReal : Game.
+[01:16:039] Script callback: Patrol routes initialized successfully : patrolroutes : void InitRoutes() : 12502, 1 : FOServer::InitReal : Game.
+[01:16:039] Script callback: Initializing brahmin pens : brahmin_pens : void InitBrahminPens() : 14464, 1 : FOServer::InitReal : Game.
+[01:16:039] Script callback: Brahmin pens initialized successfully : brahmin_pens : void InitBrahminPens() : 14472, 1 : FOServer::InitReal : Game.
+[01:16:039] Script callback: Initializing brahmin traders : brahmin_traders : void InitBrahminTraders() : 8893, 1 : FOServer::InitReal : Game.
+[01:16:039] Script callback: Brahmin traders initialized successfully : brahmin_traders : void InitBrahminTraders() : 8901, 1 : FOServer::InitReal : Game.
+[01:16:040] Script callback: Limbocontainer in Klamath(2)is invalid : town : ITown@ CTown::SetLimboContainer(Item@) : 23627, 1 : FOServer::InitReal : Game.
+[01:16:074] Script callback: Adding weather zone: GlowCloud : weather : uint AddWeatherZone(string&inout) : 16193, 1 : FOServer::InitReal : Game.
+[01:16:074] Script callback: Loaded WeatherZone(1)[GlowCloud] : weather : void InitWeatherReal() : 16017, 1 : FOServer::InitReal : Game.
+[01:16:075] Script callback: Adding weather zone: CraterCloud : weather : uint AddWeatherZone(string&inout) : 16193, 1 : FOServer::InitReal : Game.
+[01:16:075] Script callback: Loaded WeatherZone(2)[CraterCloud] : weather : void InitWeatherReal() : 16017, 1 : FOServer::InitReal : Game.
+[01:16:093] Starting logic threads, count<1>.
+[01:16:093] ***   Starting game loop   ***

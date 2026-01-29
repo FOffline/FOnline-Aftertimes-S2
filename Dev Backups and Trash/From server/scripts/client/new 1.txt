@@ -1,0 +1,318 @@
+[00:000] FOnline server, version 0520-F8.
+[01:44:185] ***   Starting initialization   ****
+[01:44:200] Script system initialization...
+[01:44:233] Reload scripts...
+[02:35:518] Reload scripts complete.
+[02:35:518] Bind reserved functions...
+[02:35:529] Bind reserved functions complete.
+[02:35:529] Script system initialization complete.
+[02:35:529] Loading language packs...
+[02:35:566] Loading language packs complete, loaded<1> packs.
+[02:35:566] Reload client scripts...
+[02:36:758] Script message: client_dev_menu : Info : Compiling void CXpButton::Click() : 16473, 1.
+[02:36:758] Script message: client_dev_menu : Error : No matching signatures to 'GUI_IsKeyPressed(const uint)' : 16475, 15.
+[02:36:758] Script message: client_dev_menu : Info : Candidates are: : 16475, 15.
+[02:36:758] Script message: client_dev_menu : Info : bool GUI_IsKeyPressed(uint8, string&inout) : 16475, 15.
+[02:36:758] Script message: client_dev_menu : Error : No matching signatures to 'CXpWindow::Auto(const int)' : 16475, 10.
+[02:36:758] Script message: client_dev_menu : Info : Candidates are: : 16475, 10.
+[02:36:758] Script message: client_dev_menu : Info : void Window::Auto(bool) : 16475, 10.
+[02:36:758] Script message: client_dev_menu : Info : bool Window::Auto() : 16475, 10.
+[02:36:760] Script message: client_dev_menu : Info : Compiling void CSpawnNpcButton::Click() : 16569, 1.
+[02:36:760] Script message: client_dev_menu : Error : No matching signatures to 'GUI_IsKeyPressed(const uint)' : 16571, 18.
+[02:36:760] Script message: client_dev_menu : Info : Candidates are: : 16571, 18.
+[02:36:760] Script message: client_dev_menu : Info : bool GUI_IsKeyPressed(uint8, string&inout) : 16571, 18.
+[02:36:760] Script message: client_dev_menu : Error : No matching signatures to 'CSpawnNpcWindow::Auto(const int)' : 16571, 13.
+[02:36:760] Script message: client_dev_menu : Info : Candidates are: : 16571, 13.
+[02:36:760] Script message: client_dev_menu : Info : void Window::Auto(bool) : 16571, 13.
+[02:36:760] Script message: client_dev_menu : Info : bool Window::Auto() : 16571, 13.
+[02:36:767] Script::LoadScript - Unable to Build module<client_dev_menu>, result<-1>.
+[02:36:767] FOServer::ReloadClientScripts - Unable to load client script<client_dev_menu>.
+[02:36:920] Script message: client_fixboy : Info : Compiling void InjectCounterButton::Click() : 13956, 1.
+[02:36:920] Script message: client_fixboy : Error : No matching signatures to 'GUI_IsKeyPressed(const uint)' : 13958, 4.
+[02:36:920] Script message: client_fixboy : Info : Candidates are: : 13958, 4.
+[02:36:920] Script message: client_fixboy : Info : bool GUI_IsKeyPressed(uint8, string&inout) : 13958, 4.
+[02:36:920] Script message: client_fixboy : Error : Expression must be of boolean type : 13958, 4.
+[02:36:927] Script::LoadScript - Unable to Build module<client_fixboy>, result<-1>.
+[02:36:927] FOServer::ReloadClientScripts - Unable to load client script<client_fixboy>.
+[02:37:485] Script message: client_gmtools : Info : Compiling bool GMToolsProcessKey(uint8, string&inout) : 15804, 1.
+[02:37:485] Script message: client_gmtools : Error : No matching signatures to 'GUI_IsKeyPressed(const uint)' : 15816, 40.
+[02:37:485] Script message: client_gmtools : Info : Candidates are: : 15816, 40.
+[02:37:485] Script message: client_gmtools : Info : bool GUI_IsKeyPressed(uint8, string&inout) : 15816, 40.
+[02:37:485] Script message: client_gmtools : Error : No conversion from 'int' to 'bool' available. : 15816, 38.
+[02:37:485] Script message: client_gmtools : Error : No matching signatures to 'GUI_IsKeyPressed(const uint)' : 15823, 40.
+[02:37:485] Script message: client_gmtools : Info : Candidates are: : 15823, 40.
+[02:37:485] Script message: client_gmtools : Info : bool GUI_IsKeyPressed(uint8, string&inout) : 15823, 40.
+[02:37:485] Script message: client_gmtools : Error : No conversion from 'int' to 'bool' available. : 15823, 38.
+[02:37:520] Script::LoadScript - Unable to Build module<client_gmtools>, result<-1>.
+[02:37:520] FOServer::ReloadClientScripts - Unable to load client script<client_gmtools>.
+[02:37:925] Script message: client_gui : Info : Compiling bool GUI_KeyDown(uint8, string&inout) : 13037, 1.
+[02:37:925] Script message: client_gui : Error : No matching signatures to 'GUIScreen::KeyPress(uint8, string&)' : 13043, 29.
+[02:37:925] Script message: client_gui : Error : No conversion from 'int' to 'bool' available. : 13043, 1.
+[02:37:931] Script::LoadScript - Unable to Build module<client_gui>, result<-1>.
+[02:37:931] FOServer::ReloadClientScripts - Unable to load client script<client_gui>.
+[02:38:210] Script message: client_interface : Info : Compiling string item_description(ItemCl&inout, int) : 17227, 1.
+[02:38:210] Script message: client_interface : Error : No matching signatures to 'GUI_IsKeyPressed(const uint)' : 17269, 19.
+[02:38:210] Script message: client_interface : Info : Candidates are: : 17269, 19.
+[02:38:210] Script message: client_interface : Info : bool GUI_IsKeyPressed(uint8, string&inout) : 17269, 19.
+[02:38:210] Script message: client_interface : Error : No conversion from 'int' to 'bool' available. : 17269, 17.
+[02:38:211] Script message: client_interface : Error : No matching signatures to 'GUI_IsKeyPressed(const uint)' : 17288, 33.
+[02:38:211] Script message: client_interface : Info : Candidates are: : 17288, 33.
+[02:38:211] Script message: client_interface : Info : bool GUI_IsKeyPressed(uint8, string&inout) : 17288, 33.
+[02:38:211] Script message: client_interface : Error : No conversion from 'int' to 'bool' available. : 17288, 31.
+[02:38:211] Script message: client_interface : Error : No matching signatures to 'GUI_IsKeyPressed(const uint)' : 17311, 33.
+[02:38:211] Script message: client_interface : Info : Candidates are: : 17311, 33.
+[02:38:211] Script message: client_interface : Info : bool GUI_IsKeyPressed(uint8, string&inout) : 17311, 33.
+[02:38:211] Script message: client_interface : Error : No conversion from 'int' to 'bool' available. : 17311, 31.
+[02:38:256] Script::LoadScript - Unable to Build module<client_interface>, result<-1>.
+[02:38:256] FOServer::ReloadClientScripts - Unable to load client script<client_interface>.
+[02:38:402] Script message: client_io : Info : Compiling bool key_down(uint8, string&inout) : 12420, 1.
+[02:38:402] Script message: client_io : Error : No matching signatures to 'GUI_IsKeyPressed(const uint)' : 12426, 16.
+[02:38:402] Script message: client_io : Info : Candidates are: : 12426, 16.
+[02:38:402] Script message: client_io : Info : bool GUI_IsKeyPressed(uint8, string&inout) : 12426, 16.
+[02:38:402] Script message: client_io : Error : No matching signatures to 'GUI_IsKeyPressed(const uint)' : 12426, 40.
+[02:38:402] Script message: client_io : Info : Candidates are: : 12426, 40.
+[02:38:402] Script message: client_io : Info : bool GUI_IsKeyPressed(uint8, string&inout) : 12426, 40.
+[02:38:402] Script message: client_io : Error : No conversion from 'int' to 'bool' available. : 12426, 38.
+[02:38:402] Script message: client_io : Error : No conversion from 'int' to 'bool' available. : 12426, 38.
+[02:38:405] Script message: client_io : Info : Compiling bool mouse_down(int) : 12547, 1.
+[02:38:405] Script message: client_io : Error : No matching signatures to 'GUI_IsKeyPressed(const uint)' : 12561, 29.
+[02:38:405] Script message: client_io : Info : Candidates are: : 12561, 29.
+[02:38:405] Script message: client_io : Info : bool GUI_IsKeyPressed(uint8, string&inout) : 12561, 29.
+[02:38:405] Script message: client_io : Error : No conversion from 'int' to 'bool' available. : 12561, 27.
+[02:38:405] Script message: client_io : Error : No matching signatures to 'GUI_IsKeyPressed(const uint)' : 12569, 29.
+[02:38:405] Script message: client_io : Info : Candidates are: : 12569, 29.
+[02:38:405] Script message: client_io : Info : bool GUI_IsKeyPressed(uint8, string&inout) : 12569, 29.
+[02:38:405] Script message: client_io : Error : No conversion from 'int' to 'bool' available. : 12569, 27.
+[02:38:405] Script message: client_io : Error : No matching signatures to 'GUI_IsKeyPressed(const uint)' : 12575, 37.
+[02:38:405] Script message: client_io : Info : Candidates are: : 12575, 37.
+[02:38:405] Script message: client_io : Info : bool GUI_IsKeyPressed(uint8, string&inout) : 12575, 37.
+[02:38:405] Script message: client_io : Error : No conversion from 'int' to 'bool' available. : 12575, 35.
+[02:38:410] Script::LoadScript - Unable to Build module<client_io>, result<-1>.
+[02:38:411] FOServer::ReloadClientScripts - Unable to load client script<client_io>.
+[02:38:502] Script message: client_keybinds : Info : Compiling bool BaseBind::CtrlPressed() : 9274, 1.
+[02:38:502] Script message: client_keybinds : Error : No matching signatures to 'GUI_IsKeyPressed(const uint)' : 9274, 27.
+[02:38:502] Script message: client_keybinds : Info : Candidates are: : 9274, 27.
+[02:38:502] Script message: client_keybinds : Info : bool GUI_IsKeyPressed(uint8, string&inout) : 9274, 27.
+[02:38:502] Script message: client_keybinds : Error : No matching signatures to 'GUI_IsKeyPressed(const uint)' : 9274, 51.
+[02:38:502] Script message: client_keybinds : Info : Candidates are: : 9274, 51.
+[02:38:502] Script message: client_keybinds : Info : bool GUI_IsKeyPressed(uint8, string&inout) : 9274, 51.
+[02:38:502] Script message: client_keybinds : Error : No conversion from 'int' to 'bool' available. : 9274, 49.
+[02:38:502] Script message: client_keybinds : Error : No conversion from 'int' to 'bool' available. : 9274, 49.
+[02:38:502] Script message: client_keybinds : Info : Compiling bool BaseBind::ShiftPressed() : 9275, 1.
+[02:38:502] Script message: client_keybinds : Error : No matching signatures to 'GUI_IsKeyPressed(const uint)' : 9275, 28.
+[02:38:502] Script message: client_keybinds : Info : Candidates are: : 9275, 28.
+[02:38:502] Script message: client_keybinds : Info : bool GUI_IsKeyPressed(uint8, string&inout) : 9275, 28.
+[02:38:502] Script message: client_keybinds : Error : No matching signatures to 'GUI_IsKeyPressed(const uint)' : 9275, 52.
+[02:38:502] Script message: client_keybinds : Info : Candidates are: : 9275, 52.
+[02:38:502] Script message: client_keybinds : Info : bool GUI_IsKeyPressed(uint8, string&inout) : 9275, 52.
+[02:38:502] Script message: client_keybinds : Error : No conversion from 'int' to 'bool' available. : 9275, 50.
+[02:38:502] Script message: client_keybinds : Error : No conversion from 'int' to 'bool' available. : 9275, 50.
+[02:38:503] Script message: client_keybinds : Info : Compiling bool BaseBind::AltPressed() : 9276, 1.
+[02:38:503] Script message: client_keybinds : Error : No matching signatures to 'GUI_IsKeyPressed(const uint)' : 9276, 26.
+[02:38:503] Script message: client_keybinds : Info : Candidates are: : 9276, 26.
+[02:38:503] Script message: client_keybinds : Info : bool GUI_IsKeyPressed(uint8, string&inout) : 9276, 26.
+[02:38:503] Script message: client_keybinds : Error : No matching signatures to 'GUI_IsKeyPressed(const uint)' : 9276, 50.
+[02:38:503] Script message: client_keybinds : Info : Candidates are: : 9276, 50.
+[02:38:503] Script message: client_keybinds : Info : bool GUI_IsKeyPressed(uint8, string&inout) : 9276, 50.
+[02:38:503] Script message: client_keybinds : Error : No conversion from 'int' to 'bool' available. : 9276, 48.
+[02:38:503] Script message: client_keybinds : Error : No conversion from 'int' to 'bool' available. : 9276, 48.
+[02:38:503] Script message: client_keybinds : Info : Compiling bool Bind::Active() : 9319, 1.
+[02:38:503] Script message: client_keybinds : Error : No matching signatures to 'GUI_IsKeyPressed(int&)' : 9322, 5.
+[02:38:503] Script message: client_keybinds : Info : Candidates are: : 9322, 5.
+[02:38:503] Script message: client_keybinds : Info : bool GUI_IsKeyPressed(uint8, string&inout) : 9322, 5.
+[02:38:503] Script message: client_keybinds : Error : Illegal operation on this datatype : 9322, 4.
+[02:38:503] Script message: client_keybinds : Error : Expression must be of boolean type : 9322, 4.
+[02:38:526] Script::LoadScript - Unable to Build module<client_keybinds>, result<-1>.
+[02:38:526] FOServer::ReloadClientScripts - Unable to load client script<client_keybinds>.
+[02:40:908] Script message: radio : Info : Compiling bool TextboxChannel::KeyDown(uint8) : 14745, 1.
+[02:40:908] Script message: radio : Error : No matching signatures to 'CTextBox::KeyDown(uint8)' : 14751, 1.
+[02:40:908] Script message: radio : Info : Candidates are: : 14751, 1.
+[02:40:908] Script message: radio : Info : bool CTextBox::KeyDown(uint8, string&inout) : 14751, 1.
+[02:40:914] Script::LoadScript - Unable to Build module<radio>, result<-1>.
+[02:40:914] FOServer::ReloadClientScripts - Unable to load client script<radio>.
+[02:42:171] Script::BindImportedFunctions - Fail to bind imported functions, module<chosen_tabs>, error<-19>.
+[02:42:172] Script message: System function : Error : Identifier 'IGUIScreenOpt' is not a data type : 1, 1.
+[02:42:173] Script message: System function : Error : Identifier 'IGUIScreenOpt' is not a data type : 1, 1.
+[02:42:173] Script message: System function : Error : Identifier 'IGUIElementTextOpt' is not a data type : 1, 1.
+[02:42:173] Script message: System function : Error : Identifier 'IGUIElementTextOpt' is not a data type : 1, 1.
+[02:42:173] Script message: System function : Error : Identifier 'IGUIElementImageOpt' is not a data type : 1, 1.
+[02:42:173] Script message: System function : Error : Identifier 'IGUIElementImageOpt' is not a data type : 1, 1.
+[02:42:173] Script message: System function : Error : Identifier 'IGUIElementButtonOpt' is not a data type : 1, 1.
+[02:42:173] Script message: System function : Error : Identifier 'IGUIElementButtonOpt' is not a data type : 1, 1.
+[02:42:173] Script message: System function : Error : Identifier 'IGUIScreenOpt' is not a data type : 1, 1.
+[02:42:173] Script::BindImportedFunctions - Fail to bind imported functions, module<client_container_addons>, error<-19>.
+[02:42:174] Script::BindImportedFunctions - Fail to bind imported functions, module<client_combat>, error<-19>.
+[02:42:174] Script message: System function : Error : Identifier 'IGUIScreenOpt' is not a data type : 1, 1.
+[02:42:174] Script message: System function : Error : Identifier 'IGUIScreenOpt' is not a data type : 1, 1.
+[02:42:174] Script message: System function : Error : Identifier 'IGUIElementTextOpt' is not a data type : 1, 1.
+[02:42:174] Script message: System function : Error : Identifier 'IGUIElementTextOpt' is not a data type : 1, 1.
+[02:42:174] Script message: System function : Error : Identifier 'IGUIElementImageOpt' is not a data type : 1, 1.
+[02:42:174] Script message: System function : Error : Identifier 'IGUIElementImageOpt' is not a data type : 1, 1.
+[02:42:174] Script message: System function : Error : Identifier 'IGUIElementButtonOpt' is not a data type : 1, 1.
+[02:42:174] Script message: System function : Error : Identifier 'IGUIElementButtonOpt' is not a data type : 1, 1.
+[02:42:174] Script message: System function : Error : Identifier 'IGUIScreenOpt' is not a data type : 1, 1.
+[02:42:174] Script::BindImportedFunctions - Fail to bind imported functions, module<client_followers_menu>, error<-19>.
+[02:42:175] Script message: System function : Error : Identifier 'IGUIScreenOpt' is not a data type : 1, 1.
+[02:42:175] Script message: System function : Error : Identifier 'IGUIScreenOpt' is not a data type : 1, 1.
+[02:42:175] Script message: System function : Error : Identifier 'IGUIElementTextOpt' is not a data type : 1, 1.
+[02:42:175] Script message: System function : Error : Identifier 'IGUIElementTextOpt' is not a data type : 1, 1.
+[02:42:175] Script message: System function : Error : Identifier 'IGUIElementImageOpt' is not a data type : 1, 1.
+[02:42:175] Script message: System function : Error : Identifier 'IGUIElementImageOpt' is not a data type : 1, 1.
+[02:42:175] Script message: System function : Error : Identifier 'IGUIElementButtonOpt' is not a data type : 1, 1.
+[02:42:175] Script message: System function : Error : Identifier 'IGUIElementButtonOpt' is not a data type : 1, 1.
+[02:42:175] Script message: System function : Error : Identifier 'IGUIScreenOpt' is not a data type : 1, 1.
+[02:42:175] Script::BindImportedFunctions - Fail to bind imported functions, module<client_fov>, error<-19>.
+[02:42:175] Script message: System function : Error : Identifier 'IGUIScreenOpt' is not a data type : 1, 1.
+[02:42:175] Script message: System function : Error : Identifier 'IGUIScreenOpt' is not a data type : 1, 1.
+[02:42:175] Script message: System function : Error : Identifier 'IGUIElementTextOpt' is not a data type : 1, 1.
+[02:42:175] Script message: System function : Error : Identifier 'IGUIElementTextOpt' is not a data type : 1, 1.
+[02:42:175] Script message: System function : Error : Identifier 'IGUIElementImageOpt' is not a data type : 1, 1.
+[02:42:175] Script message: System function : Error : Identifier 'IGUIElementImageOpt' is not a data type : 1, 1.
+[02:42:175] Script message: System function : Error : Identifier 'IGUIElementButtonOpt' is not a data type : 1, 1.
+[02:42:175] Script message: System function : Error : Identifier 'IGUIElementButtonOpt' is not a data type : 1, 1.
+[02:42:175] Script message: System function : Error : Identifier 'IGUIScreenOpt' is not a data type : 1, 1.
+[02:42:176] Script::BindImportedFunctions - Fail to bind imported functions, module<client_gmtools_menu>, error<-19>.
+[02:42:176] Script message: System function : Error : Identifier 'IGUIScreenOpt' is not a data type : 1, 1.
+[02:42:176] Script message: System function : Error : Identifier 'IGUIScreenOpt' is not a data type : 1, 1.
+[02:42:176] Script message: System function : Error : Identifier 'IGUIElementTextOpt' is not a data type : 1, 1.
+[02:42:176] Script message: System function : Error : Identifier 'IGUIElementTextOpt' is not a data type : 1, 1.
+[02:42:176] Script message: System function : Error : Identifier 'IGUIElementImageOpt' is not a data type : 1, 1.
+[02:42:176] Script message: System function : Error : Identifier 'IGUIElementImageOpt' is not a data type : 1, 1.
+[02:42:176] Script message: System function : Error : Identifier 'IGUIElementButtonOpt' is not a data type : 1, 1.
+[02:42:176] Script message: System function : Error : Identifier 'IGUIElementButtonOpt' is not a data type : 1, 1.
+[02:42:176] Script message: System function : Error : Identifier 'IGUIScreenOpt' is not a data type : 1, 1.
+[02:42:177] Script::BindImportedFunctions - Fail to bind imported functions, module<client_main>, error<-19>.
+[02:42:179] Script::BindImportedFunctions - Fail to bind imported functions, module<client_messages>, error<-19>.
+[02:42:179] Script message: System function : Error : Identifier 'IGUIScreenOpt' is not a data type : 1, 1.
+[02:42:179] Script message: System function : Error : Identifier 'IGUIScreenOpt' is not a data type : 1, 1.
+[02:42:179] Script message: System function : Error : Identifier 'IGUIElementTextOpt' is not a data type : 1, 1.
+[02:42:179] Script message: System function : Error : Identifier 'IGUIElementTextOpt' is not a data type : 1, 1.
+[02:42:179] Script message: System function : Error : Identifier 'IGUIElementImageOpt' is not a data type : 1, 1.
+[02:42:179] Script message: System function : Error : Identifier 'IGUIElementImageOpt' is not a data type : 1, 1.
+[02:42:179] Script message: System function : Error : Identifier 'IGUIElementButtonOpt' is not a data type : 1, 1.
+[02:42:179] Script message: System function : Error : Identifier 'IGUIElementButtonOpt' is not a data type : 1, 1.
+[02:42:179] Script message: System function : Error : Identifier 'IGUIScreenOpt' is not a data type : 1, 1.
+[02:42:180] Script::BindImportedFunctions - Fail to bind imported functions, module<client_online_stats>, error<-19>.
+[02:42:180] Script message: System function : Error : Identifier 'IGUIScreenOpt' is not a data type : 1, 1.
+[02:42:180] Script message: System function : Error : Identifier 'IGUIScreenOpt' is not a data type : 1, 1.
+[02:42:180] Script message: System function : Error : Identifier 'IGUIElementTextOpt' is not a data type : 1, 1.
+[02:42:180] Script message: System function : Error : Identifier 'IGUIElementTextOpt' is not a data type : 1, 1.
+[02:42:180] Script message: System function : Error : Identifier 'IGUIElementImageOpt' is not a data type : 1, 1.
+[02:42:180] Script message: System function : Error : Identifier 'IGUIElementImageOpt' is not a data type : 1, 1.
+[02:42:180] Script message: System function : Error : Identifier 'IGUIElementButtonOpt' is not a data type : 1, 1.
+[02:42:180] Script message: System function : Error : Identifier 'IGUIElementButtonOpt' is not a data type : 1, 1.
+[02:42:180] Script message: System function : Error : Identifier 'IGUIScreenOpt' is not a data type : 1, 1.
+[02:42:180] Script::BindImportedFunctions - Fail to bind imported functions, module<client_screens>, error<-19>.
+[02:42:181] Script::BindImportedFunctions - Fail to bind imported functions, module<parameters>, error<-19>.
+[02:42:182] Script::BindImportedFunctions - Fail to bind imported functions, module<client_critter_onhead>, error<-19>.
+[02:42:183] Script message: System function : Error : Identifier 'IGUIScreenOpt' is not a data type : 1, 1.
+[02:42:183] Script message: System function : Error : Identifier 'IGUIScreenOpt' is not a data type : 1, 1.
+[02:42:183] Script message: System function : Error : Identifier 'IGUIElementTextOpt' is not a data type : 1, 1.
+[02:42:183] Script message: System function : Error : Identifier 'IGUIElementTextOpt' is not a data type : 1, 1.
+[02:42:183] Script message: System function : Error : Identifier 'IGUIElementImageOpt' is not a data type : 1, 1.
+[02:42:183] Script message: System function : Error : Identifier 'IGUIElementImageOpt' is not a data type : 1, 1.
+[02:42:183] Script message: System function : Error : Identifier 'IGUIElementButtonOpt' is not a data type : 1, 1.
+[02:42:183] Script message: System function : Error : Identifier 'IGUIElementButtonOpt' is not a data type : 1, 1.
+[02:42:183] Script message: System function : Error : Identifier 'IGUIScreenOpt' is not a data type : 1, 1.
+[02:42:183] Script::BindImportedFunctions - Fail to bind imported functions, module<fo2077_client_screen_gameinfo>, error<-19>.
+[02:42:183] Script message: System function : Error : Identifier 'IGUIScreenOpt' is not a data type : 1, 1.
+[02:42:183] Script message: System function : Error : Identifier 'IGUIScreenOpt' is not a data type : 1, 1.
+[02:42:183] Script message: System function : Error : Identifier 'IGUIElementTextOpt' is not a data type : 1, 1.
+[02:42:183] Script message: System function : Error : Identifier 'IGUIElementTextOpt' is not a data type : 1, 1.
+[02:42:183] Script message: System function : Error : Identifier 'IGUIElementImageOpt' is not a data type : 1, 1.
+[02:42:183] Script message: System function : Error : Identifier 'IGUIElementImageOpt' is not a data type : 1, 1.
+[02:42:183] Script message: System function : Error : Identifier 'IGUIElementButtonOpt' is not a data type : 1, 1.
+[02:42:183] Script message: System function : Error : Identifier 'IGUIElementButtonOpt' is not a data type : 1, 1.
+[02:42:183] Script message: System function : Error : Identifier 'IGUIScreenOpt' is not a data type : 1, 1.
+[02:42:183] Script::BindImportedFunctions - Fail to bind imported functions, module<fo2077_client_screen_tag>, error<-19>.
+[02:42:381] Reload client scripts complete.
+[02:42:381] Indexing client data.
+[02:42:381] Clients data not found.
+[02:42:381] AI manager initialization...
+[02:42:381] Find bags...
+[02:42:418] Loaded<291> bags.
+[02:42:418] AI manager initialization complete.
+[02:42:418] Item manager initialization...
+[02:42:425] Item manager initialization complete.
+[02:42:425] Critter manager initialization...
+[02:42:451] Critter manager initialization complete.
+[02:42:451] Map manager initialization...
+[02:42:454] Map manager initialization complete.
+[02:42:454] Var manager initialization.
+[02:42:454] Update template vars...
+[02:42:464] Update template vars complete.
+[02:42:464] Var manager initialization complete.
+[02:42:464] Load Dialogs...[02:42:464] from list<dialogs.lst>.
+[02:42:809] Loading dialogs finish, loaded<831/831>.
+[02:42:855] FixBoy load crafts...
+[02:42:869] FixBoy load crafts complete.
+[02:42:872] Loaded<168> critter types.
+[02:42:885] Loading items prototypes...
+[02:43:463] ConstantsManager::GetDefineValue - Define<> not found, taked zero by default.
+[02:43:953] Items prototypes successfully loaded, count<6185>.
+[02:43:954] Loading critters prototypes...
+[02:43:987] Loaded<681> critter protos, errors<0>.
+[02:43:987] Load location and map prototypes...
+[02:54:101] Load location and map prototypes complete, loaded<228> location protos.
+[02:54:117] Script callback: Init blueprints. : blueprints : void InitBlueprints() : 8880, 1 : FOServer::InitReal : Game.
+[02:54:128] Script callback: Found 9 blueprints of level 0 : blueprints : void InitBlueprints() : 8898, 1 : FOServer::InitReal : Game.
+[02:54:128] Script callback: Found 14 blueprints of level 1 : blueprints : void InitBlueprints() : 8898, 1 : FOServer::InitReal : Game.
+[02:54:128] Script callback: Found 14 blueprints of level 2 : blueprints : void InitBlueprints() : 8898, 1 : FOServer::InitReal : Game.
+[02:54:128] Script callback: Found 7 blueprints of level 3 : blueprints : void InitBlueprints() : 8898, 1 : FOServer::InitReal : Game.
+[02:54:128] Script callback: Found 24 blueprints of level 4 : blueprints : void InitBlueprints() : 8898, 1 : FOServer::InitReal : Game.
+[02:54:128] Script callback: Found 11 blueprints of level 5 : blueprints : void InitBlueprints() : 8898, 1 : FOServer::InitReal : Game.
+[02:54:262] Begin load world from dump file<save\world0006.fo>.
+[02:54:262] Load game info...[02:54:262] complete.
+[02:54:262] Load locations...
+[02:54:268] Load locations complete, count<76>.
+[02:54:268] Load npc...
+[02:54:336] Load npc complete, count<3981>.
+[02:54:336] Load items...[02:54:552] complete, count<21777>.
+[02:54:552] Load vars...[02:54:766] complete, count<34041>.
+[02:54:767] Load time events...[02:54:768] complete, count<12>.
+[02:54:778] Transfer all npc to game...
+[02:55:402] Transfer npc complete. Errors<0>.
+[02:55:403] Transfer all items to npc, maps and containers...
+[02:55:459] Transfer game items complete.
+[02:55:463] Script callback: Arenas init finish, arenas: 4, rooms: 2 : arena : void InitArenas(Map&inout) : 15568, 1 : Map::ParseScript : Map id<144>, pid<3>.
+[02:55:515] Script callback: ERR: Couldn't read AnyData array : vaul_guard : QuestPool::QuestPool(uint) : 13450, 1 : Critter::ParseScript : Npc (vaul_guard, 5000393).
+[02:55:528] Script callback: ERR: Couldn't read AnyData array : vaul_guard : QuestPool::QuestPool(uint) : 13450, 1 : Critter::ParseScript : Npc (vaul_lilly, 5000477).
+[02:56:437] Starting server on port<2238>.
+[02:56:437] Starting net listen thread.
+[02:56:437] Starting net work threads, count<3>.
+[02:56:676] Script callback: Encounter groups loaded. : worldmap : void WorldmapInit() : 19444, 1 : FOServer::InitReal : Game.
+[02:57:335] Script callback: Empty line : worldmap : bool LoadWorldmapTables(string@) : 16515, 1 : FOServer::InitReal : Game.
+[02:57:335] Script callback: Worldmap loaded. : worldmap : void WorldmapInit() : 19451, 1 : FOServer::InitReal : Game.
+[02:57:335] Script callback: Reading defines : utils : void ReadDefines(string@, dictionary&inout, string[]@) : 15345, 1 : FOServer::InitReal : Game.
+[02:57:337] Script callback: Read 1318 lines : utils : void ReadDefines(string@, dictionary&inout, string[]@) : 15356, 1 : FOServer::InitReal : Game.
+[02:57:367] Script callback: Reading defines : utils : void ReadDefines(string@, dictionary&inout, string[]@) : 15345, 1 : FOServer::InitReal : Game.
+[02:57:370] Script callback: Read 2806 lines : utils : void ReadDefines(string@, dictionary&inout, string[]@) : 15356, 1 : FOServer::InitReal : Game.
+[02:57:401] Script callback: Reading defines : utils : void ReadDefines(string@, dictionary&inout, string[]@) : 15345, 1 : FOServer::InitReal : Game.
+[02:57:402] Script callback: Read 231 lines : utils : void ReadDefines(string@, dictionary&inout, string[]@) : 15356, 1 : FOServer::InitReal : Game.
+[02:57:406] Script callback: Reading defines : utils : void ReadDefines(string@, dictionary&inout, string[]@) : 15345, 1 : FOServer::InitReal : Game.
+[02:57:406] Script callback: Read 174 lines : utils : void ReadDefines(string@, dictionary&inout, string[]@) : 15356, 1 : FOServer::InitReal : Game.
+[02:57:409] Script callback: Initializing factions names lookup : factions : void InitFactionsNames() : 12061, 1 : FOServer::InitReal : Game.
+[02:57:409] Script callback: Reading strings from filetext/engl/fotext.msg : factions : void ReadMsgStrings(string@, int, int) : 12075, 1 : FOServer::InitReal : Game.
+[02:57:414] Script callback: Read 3831 lines : factions : void ReadMsgStrings(string@, int, int) : 12086, 1 : FOServer::InitReal : Game.
+[02:57:571] Script callback: factions WARN: Faction name: The Mordinos is already assigned : debug : void WLog(string&inout, string&inout, int) : 9602, 1 : FOServer::InitReal : Game.
+[02:57:573] Script callback: Reading PIDs : utils : bool ReadPids(int[]&out, bool) : 15294, 1 : FOServer::InitReal : Game.
+[02:57:574] Script callback: Read 1318 lines : utils : bool ReadPids(int[]&out, bool) : 15304, 1 : FOServer::InitReal : Game.
+[02:57:602] Script callback: Economy initialized successfully. : economy : void InitEconomy() : 21069, 1 : FOServer::InitReal : Game.
+[02:57:602] Script callback: Merc event already exists : mercs : void InitMercs() : 13112, 1 : FOServer::InitReal : Game.
+[02:57:685] Script callback: npc_schedule WARN: Overriding hardcoded schedule prototype : Radiated AI[1] : debug : void WLog(string&inout, string&inout, int) : 9602, 1 : FOServer::InitReal : Game.
+[02:57:723] Script callback: npc_schedule WARN: Overriding hardcoded schedule prototype : Grave Keeper[100] : debug : void WLog(string&inout, string&inout, int) : 9602, 1 : FOServer::InitReal : Game.
+[02:57:725] Script callback: npc_schedule WARN: Overriding hardcoded schedule prototype : Jail: emitters[101] : debug : void WLog(string&inout, string&inout, int) : 9602, 1 : FOServer::InitReal : Game.
+[02:57:725] Script callback: Initialized npc schedules (3 prototypes, 0 instances) : npc_schedule : void InitNpcSchedules() : 18781, 1 : FOServer::InitReal : Game.
+[02:57:725] Script callback: Initializing patrol routes : patrolroutes : void InitRoutes() : 12277, 1 : FOServer::InitReal : Game.
+[02:57:728] Script callback: Patrol routes initialized successfully : patrolroutes : void InitRoutes() : 12490, 1 : FOServer::InitReal : Game.
+[02:57:728] Script callback: Initializing brahmin pens : brahmin_pens : void InitBrahminPens() : 14440, 1 : FOServer::InitReal : Game.
+[02:57:728] Script callback: Brahmin pens initialized successfully : brahmin_pens : void InitBrahminPens() : 14448, 1 : FOServer::InitReal : Game.
+[02:57:728] Script callback: Initializing brahmin traders : brahmin_traders : void InitBrahminTraders() : 8881, 1 : FOServer::InitReal : Game.
+[02:57:728] Script callback: Brahmin traders initialized successfully : brahmin_traders : void InitBrahminTraders() : 8889, 1 : FOServer::InitReal : Game.
+[02:57:729] Script callback: Limbocontainer in Klamath(2)is invalid : town : ITown@ CTown::SetLimboContainer(Item@) : 23603, 1 : FOServer::InitReal : Game.
+[02:57:763] Script callback: Adding weather zone: GlowCloud : weather : uint AddWeatherZone(string&inout) : 16169, 1 : FOServer::InitReal : Game.
+[02:57:763] Script callback: Loaded WeatherZone(1)[GlowCloud] : weather : void InitWeatherReal() : 15993, 1 : FOServer::InitReal : Game.
+[02:57:763] Script callback: Adding weather zone: CraterCloud : weather : uint AddWeatherZone(string&inout) : 16169, 1 : FOServer::InitReal : Game.
+[02:57:763] Script callback: Loaded WeatherZone(2)[CraterCloud] : weather : void InitWeatherReal() : 15993, 1 : FOServer::InitReal : Game.
+[02:57:781] Starting logic threads, count<1>.
+[02:57:781] ***   Starting game loop   ***

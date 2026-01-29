@@ -1,0 +1,14 @@
+//
+// FOnline: Aftertimes
+//
+// map_stfarm.fos
+//
+// worldremaker
+
+#include "mob_dynamic.fos"
+
+void map_init(Map& map, bool firstTime)
+{
+    //Dynamic mobs
+	if(firstTime) InitializeDynamicMob(map);
+}

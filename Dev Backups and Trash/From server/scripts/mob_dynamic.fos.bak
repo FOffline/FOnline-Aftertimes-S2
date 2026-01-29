@@ -1,0 +1,800 @@
+//
+// FOnline: Aftertimes
+// worldremaker
+//
+// mob_dynamic.fos
+//
+// Script for dynamic mobs, a replacement for regular ones 
+//
+
+#include "_defines.fos"
+#include "_macros.fos"
+#include "_maps.fos"
+#include "entire.fos"
+#include "npc_roles_h.fos"
+#include "npc_planes_h.fos"
+#include "utils_h.fos"
+#include "broadcast_h.fos"
+#include "_npc_pids.fos"
+
+#define IDLE_NORMAL       (5000)
+#define IDLE_ALERTED      (1000)
+#define IDLE_ALERTED_2    (200)
+#define BROADCAST_DISPLAY_TIME                   (30) // in seconds, for town raiders
+
+void InitializeDynamicMob(Map& map)
+{	
+	uint8 reqNumMobs; //required number of mobs for map
+	uint8 numMobs = map.GetNpcCount(ROLE_MOB_DYNAMIC, FIND_ONLY_NPC | FIND_LIFE_AND_KO);
+	
+	Location@ loc = map.GetLocation();
+	
+	switch(map.GetProtoId())
+	{
+		case MAP_SaltLake :	reqNumMobs = 10; break; //entires 0 , 1 , 2 , 5 , 10 , 17 
+		case MAP_Ripper : reqNumMobs = 11; break;
+		case MAP_Area51Entrance : reqNumMobs = 25; break;
+		//case MAP_NCR : reqNumMobs = Random(10, 15); break; //Town Riders!
+		default: reqNumMobs = 5; break;
+	}
+	
+	if(loc.IsGuarded())
+	{
+		//Guarded locations, town riders
+		if(valid(map))
+			//CreateTimeEvent(AFTER(REAL_MINUTE(Random(1,5))), "e_TryRaidTown", map.Id, false);
+			CreateTimeEvent(AFTER(REAL_MINUTE(1)), "e_TryRaidTown", map.Id, false);
+	}
+	else
+	{
+		//Dungeons and unguarder locations, guarding mobs
+		if(numMobs < reqNumMobs)
+		{
+			uint8 mobsToSpawn = reqNumMobs - numMobs;
+			for(uint8 i = 1; i < mobsToSpawn; i++)
+			{
+				if(valid(map))
+					CreateTimeEvent(AFTER(REAL_MINUTE(Random(1,10))), "e_TrySpawnMob", map.Id, false);
+			}			
+		}
+	}
+}
+
+uint e_TryRaidTown(array<uint>@ mobdata)
+{
+	Map@ map = GetMap(mobdata[0]);
+	if(!valid(map))
+		return 0;
+		
+	uint8 reqNumMobs;
+	
+	switch(map.GetProtoId())
+	{
+		case MAP_NCR : reqNumMobs = Random(10, 15); break; //Town Riders!
+		default: reqNumMobs = 5; break;
+	}
+	
+	array<uint> townraiddata = { map.Id, reqNumMobs };
+	CreateTimeEvent(AFTER(0), "e_TrySpawnMob", townraiddata, false);
+	
+	//return REAL_MINUTE(Random(1,5));
+	return REAL_MINUTE(60);
+}
+
+//Arrays for entrances
+array<uint8> entireSaltLake = { 0 , 1 , 2 , 3 , 10 , 17 };
+array<uint8> entireLARipper = { 0 , 11 , 12 , 13 }; //Warehouse
+array<uint8> entireA51entrance = { 10 };
+array<uint8> entireNCR = { 0 , 10 };
+
+uint e_TrySpawnMob(array<uint>@ mobdata)
+{
+	Map@ map = GetMap(mobdata[0]);
+	if(!valid(map))
+		return 0;
+		
+	//seting example mob parameters
+	uint16 pid; //typical slags here
+	uint16 bag; //Random shotgun in hand from bags.cfg
+	uint8 level, spawndirection = Random(0,5), howmanyspawns = 1;
+	uint16 dialog;
+	string groupname = "NOT SPECIFIED";
+	bool MobIsBoss = false;
+	array<uint8> entireNumbers;
+	
+	Location@ loc = map.GetLocation();
+	if(loc.IsGuarded())
+		howmanyspawns = mobdata[1];
+	
+	switch(map.GetProtoId())
+	{
+		case MAP_SaltLake :
+			entireNumbers.resize(entireSaltLake.length());
+			for(uint i = 0; i < entireNumbers.length(); i++)
+				entireNumbers[i] = entireSaltLake[i];
+			break;
+		case MAP_Ripper :
+			entireNumbers.resize(entireLARipper.length());
+			for(uint i = 0; i < entireNumbers.length(); i++)
+				entireNumbers[i] = entireLARipper[i];
+			break;
+		case MAP_Area51Entrance :
+			entireNumbers.resize(entireA51entrance.length());
+			for(uint i = 0; i < entireNumbers.length(); i++)
+				entireNumbers[i] = entireA51entrance[i];
+			break;
+		case MAP_NCR :
+			entireNumbers.resize(entireNCR.length());
+			for(uint i = 0; i < entireNumbers.length(); i++)
+				entireNumbers[i] = entireNCR[i];
+			break;
+		default: return 0;
+	}
+	
+	uint8 entireNumber = entireNumbers[(Random(0, entireNumbers.length()-1))];
+	
+	array<Entire> enter_entires;
+    if(ParseEntires(map, enter_entires, entireNumber) == 0)
+        return REAL_MINUTE(Random(1,10));
+		
+	for(uint8 i = 1; i <= howmanyspawns; i++)
+	{
+		// old version moved to @Params array
+		
+		switch(map.GetProtoId())
+		{
+			case MAP_SaltLake :
+				//seting example mob parameters
+				pid = Random(826, 830); //typical slags here
+				if(pid == 827)          // red haired melee girl
+					bag = 190;          // ripper
+				else
+				bag = Random(582, 587); //Random shotgun in hand from bags.cfg
+				level = Random(1,10);
+				dialog = 9479; //slugs locker dialog
+				break;
+			case MAP_Ripper :
+				//seting example mob parameters
+				pid = Random(826, 830); //typical slags here
+				if(pid == 827)          // red haired melee girl
+					bag = 190;          // ripper
+				else
+				bag = Random(582, 587); //Random shotgun in hand from bags.cfg
+				level = Random(1,10);
+				dialog = 9479; //slugs locker dialog
+				break;
+			case MAP_Area51Entrance :
+				//seting example mob parameters
+				
+				pid = Random(1, 3); //Just for random alien
+				if(pid == 1) pid = 242; //Alien
+				if(pid == 2) pid = 243; //Tough alien
+				if(pid == 3) pid = 517; //Young alien
+				
+				bag = 1; //Random shotgun in hand from bags.cfg
+				level = Random(1,10);
+				dialog = DIALOG_mob_alien; //alien mob dialog
+				break;
+			case MAP_NCR :
+				//seting example mob parameters
+				pid = Random(826, 830); //typical slags here
+				if(pid == 827)          // red haired melee girl
+					bag = 190;          // ripper
+				else
+				bag = Random(582, 587); //Random shotgun in hand from bags.cfg
+				level = Random(1,10);
+				dialog = 9479; //slugs locker dialog
+				groupname = "Slags";
+				break;
+			default: return 0;
+		}
+		Entire@ entire = enter_entires[Random(0, (enter_entires.length() - 1))];
+		
+		if(!valid(entire) && loc.IsGuarded())
+			continue;
+		
+		if(!valid(entire))	
+			return REAL_MINUTE(Random(1,10));
+		
+		spawndirection = entire.Direction;
+		/*
+		// --------------------------------------------------------
+		// Replacement for constant parameters
+		
+		int[] params = Params(map, MobIsBoss);
+		if(params.length() == 0 || (params.length() % 2 != 0))
+			return 0;
+		
+		
+		// -------------------------------------------------------
+		*/
+		// Old version:
+		
+		//Generate S.P.E.C.I.A.L.
+		uint8 S = 1, P = 1, E = 1, C = 1, I = 1, A = 1, L = 1;
+		for(uint8 i = 1; i < 33; i++ )
+		{
+			switch(Random(1, 7)) //Generate S.P.E.C.I.A.L.
+			{
+				case 1 : if(S == 10) i--; else S++; break;
+				case 2 : if(P == 10) i--; else P++; break;
+				case 3 : if(E == 10) i--; else E++; break;
+				case 4 : if(C == 10) i--; else C++; break;
+				case 5 : if(I == 10) i--; else I++; break;
+				case 6 : if(A == 10) i--; else A++; break;
+				case 7 : if(L == 10) i--; else L++; break;
+			}
+		}
+		
+		int[] params =
+			{
+				ST_STRENGTH, S,
+				ST_PERCEPTION, P,
+				ST_ENDURANCE, E,
+				ST_CHARISMA, C,
+				ST_INTELLECT, I,
+				ST_AGILITY, A,
+				ST_LUCK, L,
+				ST_TEAM_ID, Random(5000, 5002),
+				ST_BAG_ID, bag,
+				ST_KILL_EXPERIENCE, 500,
+				// ST_REPLICATION_TIME, REPLICATION_DELETE,
+				//ST_REPLICATION_TIME, REPLICATION_DELETE_FAST,
+				ST_LEVEL, level,
+				ST_NPC_ROLE, ROLE_MOB_DYNAMIC,
+				ST_DIALOG_ID, dialog
+			};
+		
+		
+		Critter@ mob = map.AddNpc(pid, entire.HexX, entire.HexY, spawndirection, params, null, "init_mob");
+		SetParatersToMob(mob, map, MobIsBoss);
+	}
+	
+	if(howmanyspawns > 1)
+	{
+		string locationName;
+		switch(map.GetProtoId())
+		{
+			case MAP_NCR : locationName = "NCR"; break;
+			default : locationName = "NOT SPECIFIED"; break;
+		}
+		ServerEventMSG(BROADCAST_DISPLAY_TIME, groupname + " have raided the town of " + locationName + "!");
+	}
+		
+	return 0;
+}
+
+// Test of param array for generated critters
+array<int>@ Params(Map& map, bool MobIsBoss)
+{
+	uint16 dialog, bag, level, pid;
+	string groupname;
+	
+	switch(map.GetProtoId())
+		{
+			case MAP_SaltLake :
+				//seting example mob parameters
+				pid = Random(826, 830); //typical slags here
+				if(pid == 827)          // red haired melee girl
+					bag = 190;          // ripper
+				else
+				bag = Random(582, 587); //Random shotgun in hand from bags.cfg
+				level = Random(1,10);
+				dialog = 9479; //slugs locker dialog
+				break;
+			case MAP_Ripper :
+				//seting example mob parameters
+				pid = Random(826, 830); //typical slags here
+				if(pid == 827)          // red haired melee girl
+					bag = 190;          // ripper
+				else
+				bag = Random(582, 587); //Random shotgun in hand from bags.cfg
+				level = Random(1,10);
+				dialog = 9479; //slugs locker dialog
+				break;
+			case MAP_Area51Entrance :
+				//seting example mob parameters
+				
+				pid = Random(1, 3); //Just for random alien
+				if(pid == 1) pid = 242; //Alien
+				if(pid == 2) pid = 243; //Tough alien
+				if(pid == 3) pid = 517; //Young alien
+				
+				bag = 1; //Random shotgun in hand from bags.cfg
+				level = Random(1,10);
+				dialog = DIALOG_mob_alien; //alien mob dialog
+				break;
+			case MAP_NCR :
+				//seting example mob parameters
+				pid = Random(826, 830); //typical slags here
+				if(pid == 827)          // red haired melee girl
+					bag = 190;          // ripper
+				else
+				bag = Random(582, 587); //Random shotgun in hand from bags.cfg
+				level = Random(1,10);
+				dialog = 9479; //slugs locker dialog
+				groupname = "Slags";
+				break;
+			//default: return 0;
+		}
+	
+	//Generate S.P.E.C.I.A.L.
+		uint8 S = 1, P = 1, E = 1, C = 1, I = 1, A = 1, L = 1;
+		for(uint8 i = 1; i < 33; i++ )
+		{
+			switch(Random(1, 7)) //Generate S.P.E.C.I.A.L.
+			{
+				case 1 : if(S == 10) i--; else S++; break;
+				case 2 : if(P == 10) i--; else P++; break;
+				case 3 : if(E == 10) i--; else E++; break;
+				case 4 : if(C == 10) i--; else C++; break;
+				case 5 : if(I == 10) i--; else I++; break;
+				case 6 : if(A == 10) i--; else A++; break;
+				case 7 : if(L == 10) i--; else L++; break;
+			}
+		}
+		
+		int[] params =
+			{
+				ST_STRENGTH, S,
+				ST_PERCEPTION, P,
+				ST_ENDURANCE, E,
+				ST_CHARISMA, C,
+				ST_INTELLECT, I,
+				ST_AGILITY, A,
+				ST_LUCK, L,
+				ST_TEAM_ID, Random(5000, 5002),
+				ST_BAG_ID, bag,
+				ST_KILL_EXPERIENCE, 500,
+				// ST_REPLICATION_TIME, REPLICATION_DELETE,
+				//ST_REPLICATION_TIME, REPLICATION_DELETE_FAST,
+				ST_LEVEL, level,
+				ST_NPC_ROLE, ROLE_MOB_DYNAMIC,
+				ST_DIALOG_ID, dialog
+			};
+	
+	return params;
+}
+
+void SetParatersToMob(Critter& mob, Map& map, bool MobIsBoss)
+{
+	
+	switch(map.GetProtoId())
+	{
+		case MAP_SaltLake : //Slags part
+		case MAP_Ripper :
+		case MAP_NCR :
+			//Set combat skills
+			mob.SkillBase[SK_SMALL_GUNS] = Random(150, 300);
+			mob.SkillBase[SK_BIG_GUNS] = Random(150, 300);
+			mob.SkillBase[SK_ENERGY_WEAPONS] = Random(150, 300);
+			mob.SkillBase[SK_UNARMED] = Random(150, 300);
+			//Set support skills
+			mob.SkillBase[SK_DOCTOR] = Random(10, 200);
+			mob.SkillBase[SK_FIRST_AID] = Random(10, 200);
+			//Other params
+			mob.ParamBase[ST_KILL_EXPERIENCE] = Random(10, 12) * 100;
+			break;
+		
+		case MAP_Area51Entrance : //Aliens
+			mob.SkillBase[SK_UNARMED] = Random(200, 300);
+			mob.ParamBase[ST_KILL_EXPERIENCE] = Random(5, 7) * 100;
+			break;
+			
+		default: return;
+	}
+}
+
+void init_mob(Critter& mob, bool firstTime)
+{
+    Map@ map = mob.GetMap();
+	if(!valid(map))
+		return;
+	
+	Location@ loc = map.GetLocation();
+	
+	if(loc.IsGuarded())
+	{
+		mob.ParamBase[ST_REPLICATION_TIME] = REPLICATION_NEVER;
+		mob.SetEvent(CRITTER_EVENT_DEAD, "_DeleteMob");
+		//Proceed to the next area
+		array<uint> keeppushing = { map.Id , 170 };
+		CreateTimeEvent(AFTER(REAL_MINUTE(1)), "e_PushForward", keeppushing, false);
+		//mob.SetEvent(CRITTER_EVENT_ATTACKED, "_Attacked");
+		//mob.SetEvent(CRITTER_EVENT_ATTACK, "_Attacked");
+	}
+	else
+	{
+		mob.ParamBase[ST_REPLICATION_TIME] = REPLICATION_NEVER;
+		mob.SetEvent(CRITTER_EVENT_DEAD, "_MakeAnotherMob");
+	}
+	mob.SetEvent(CRITTER_EVENT_IDLE, "_MobIdle");
+    
+	_CritSetMode(mob, MODE_NO_STEAL);
+    _CritSetMode(mob, MODE_NO_DROP);
+    _CritSetMode(mob, MODE_NO_LOOT);
+	_CritSetMode(mob, MODE_UNLIMITED_AMMO);
+    _CritUnsetMode(mob, MODE_NO_BARTER);
+    // mob.SetEvent(CRITTER_EVENT_SHOW_CRITTER, "_MobShowCritterAggr");
+    // mob.SetEvent(CRITTER_EVENT_HIDE_CRITTER, "_MobHideCritter");
+    // mob.SetEvent(CRITTER_EVENT_ATTACKED, "_MobAttacked");
+    _CritSetExtMode(mob, MODE_EXT_MOB);
+	if(firstTime)
+    {
+        MoveMobToFreeHex(mob);
+	}
+}
+
+uint e_PushForward(array<uint>@ keeppushing)
+{
+	Map@ map = GetMap(keeppushing[0]);
+	if(!valid(map))
+		return 0;
+		
+	uint numMobs = map.GetNpcCount(ROLE_MOB_DYNAMIC, FIND_ONLY_NPC | FIND_LIFE);
+	if(numMobs == 0)
+		return 0;
+		
+	uint8 entireNumber = keeppushing[1];
+	
+	// New system for gathering ENT hexes on map.
+	array<Entire> moveto_entires;
+	if(ParseEntires(map, moveto_entires, entireNumber) == 0)
+	{
+		//move out system but now return 0;
+		array<Critter@> mobs;
+		map.GetCritters(0, FIND_ONLY_NPC | FIND_LIFE_AND_KO, mobs);
+		for(uint16 i = 0; i < mobs.length(); i++)
+			if(valid(mobs[i]) && mobs[i].Stat[ST_NPC_ROLE] == ROLE_MOB_DYNAMIC)
+				mobs[i].Say(SAY_NORM_ON_HEAD, "Сука, dead end!");
+		return 0;
+	}
+	
+	//shuffle_array(entires, uint8);
+	uint8  dir;
+	uint16 x, y;
+	x = y = dir = 0;
+	
+	array<Critter@> mobs;
+	map.GetCritters(0, FIND_ONLY_NPC | FIND_LIFE_AND_KO, mobs);
+	
+	for(uint16 i = 0; i < mobs.length(); i++)
+	{
+		Entire@ entire = moveto_entires[Random(0, (moveto_entires.length() - 1))];
+		if(!valid(entire))
+			continue;
+		
+		if(valid(mobs[i]) && mobs[i].Stat[ST_NPC_ROLE] == ROLE_MOB_DYNAMIC)
+		{	
+			if(GetEntireFreeHex(mobs[i].GetMap(), entireNumber, x, y, Random(0, (moveto_entires.length() - 1))))
+			{
+				mobs[i].SetHomePos(x, y, dir);
+				mobs[i].Say(SAY_NORM_ON_HEAD, "Push them сука!");
+				mobs[i].SetEvent(CRITTER_EVENT_SHOW_CRITTER, "_MobShowCritterAggr");
+			}
+			else
+			{
+			i--;
+			//Log("Unable to find free mob hex on map " + mobs[i].GetMapId());
+			}
+		}
+	}
+	
+	
+	
+	entireNumber++;
+	array<uint> justpushthem = { map.Id , entireNumber };
+	CreateTimeEvent(AFTER(REAL_MINUTE(1)), "e_PushForward", justpushthem, false);
+	
+	return 0;
+}
+
+uint e_deleteMob(array<uint>@ mobdata)
+{
+	Critter@ mob = GetCritter(mobdata[0]);
+	
+	if(valid(mob))
+		DeleteNpc(mob);
+		
+	return 0;
+}
+
+void MoveMobToFreeHex(Critter& mob)
+{
+    Map@ map = mob.GetMap();
+	if(!valid(map))
+		return;
+	
+	Location@ loc = map.GetLocation();
+	
+	if(!(loc.IsGuarded()))
+	{
+		mob.SetEvent(CRITTER_EVENT_SHOW_CRITTER, "_MobShowCritterAggr");
+	
+		// New system for gathering ENT hexes on map.
+		uint8[] entires;
+		uint8 tablelenght = 0;
+		for(uint8 i = ENTIRE_DYNAMIC_MOB; i < ENTIRE_DYNAMIC_MOB_DIRS_END; i++)
+		{
+			array<Entire> enter_entires;
+			if(ParseEntires(map, enter_entires, i) > 0)
+			{
+				tablelenght++;
+				entires.resize(tablelenght);
+				entires[tablelenght-1] = i;
+			}
+		}
+	
+		//shuffle_array(entires, uint8);
+		uint8  dir;
+		uint16 x, y;
+		x = y = dir = 0;
+	
+	
+	
+		uint8 entireNumber = entires[(Random(0, (entires.length()-1)))];
+		if(entireNumber == ENTIRE_DYNAMIC_MOB)
+		{
+			dir = Random(0, 5);
+			mob.SetEvent(CRITTER_EVENT_IDLE, "_MobIdle");
+		}
+		else
+		{
+			mob.SetEvent(CRITTER_EVENT_IDLE, "_DontMove");
+			switch(entireNumber)
+			{
+				case ENTIRE_DYNAMIC_MOB_DIRS_BEGIN : dir = 0; break;
+				case 172 : dir = 1; break;
+				case 173 : dir = 2; break;
+				case 174 : dir = 3; break;
+				case 175 : dir = 4; break;
+				case ENTIRE_DYNAMIC_MOB_DIRS_END : dir = 5; break;
+				default : dir = 0; mob.SetEvent(CRITTER_EVENT_IDLE, "_MobIdle"); break;
+			}
+		}
+
+		array<Entire> moveto_entires;
+		if(ParseEntires(map, moveto_entires, entireNumber) == 0)
+			return;
+
+		Entire@ entire = moveto_entires[Random(0, (moveto_entires.length() - 1))];
+		if(!valid(entire))
+			return;
+
+        if(GetEntireFreeHex(mob.GetMap(), entireNumber, x, y, Random(0, (moveto_entires.length() - 1))))
+        {
+            mob.SetHomePos(x, y, dir);
+            return;
+        }
+
+		Log("Unable to find free mob hex on map " + mob.GetMapId());
+	}
+}
+
+void _MakeAnotherMob(Critter& mob, Critter@ killer)
+{
+	if(!valid(mob))
+		return; 
+	
+	Map@ map = mob.GetMap();
+	
+	if(!valid(map))
+		return;
+	
+	uint8 neededTime;
+	
+	switch(map.GetProtoId())
+		{
+			case MAP_SaltLake : //Slags part
+			case MAP_Ripper :
+			neededTime = Random(5,10);
+			break;
+		
+		case MAP_Area51Entrance : //Aliens
+			neededTime = 10;
+			break;
+			
+		default: return;
+		}
+	
+	CreateTimeEvent(AFTER(REAL_MINUTE(neededTime)), "e_deleteMob", mob.Id, false);
+	CreateTimeEvent(AFTER(REAL_MINUTE(neededTime)), "e_TrySpawnMob", map.Id, false);
+}
+
+void _DeleteMob(Critter& mob, Critter@ killer)
+{
+	if(valid(killer) && killer.IsPlayer()) AddScore(killer, SCORE_TOWN_PROTECTOR, 1);
+	//if boss then 5
+	
+	if(!valid(mob))
+		return;
+		
+	CreateTimeEvent(AFTER(REAL_SECOND(5)), "e_deleteMob", mob.Id, false);
+}
+
+void _MobIdle(Critter& mob)
+{
+	// the great optimizer
+    if(!mob.IsLife())
+    {
+		mob.Wait(IDLE_ALERTED);
+        return;
+    }
+	
+	mob.SetEvent(CRITTER_EVENT_SHOW_CRITTER, null);
+	
+	if(Random(0, 50) == 0)
+	{
+		/* NpcPlane@ plane = mob.GetCurPlane();
+		if((valid(plane)) && ((plane.Identifier != AI_PLANE_ATTACK))) */
+			MoveMobToFreeHex(mob);
+	}
+
+    // check critters in sight
+     array<Critter@> crits;
+    // get visible players
+    uint            num = mob.GetCritters(false, FIND_LIFE_AND_KO, crits);
+
+    // mob.Say(SAY_NORM_ON_HEAD, ""+num);
+    // check distance
+    uint dist = GetDistance(mob);
+    for(uint i = 0; i < num; i++)
+    {
+		if(GetCrittersDistantion(mob, crits[i]) > dist)
+			mob.Say(SAY_NORM_ON_HEAD, "Idling, Distance const: " + dist + ", Dinstance var: " + GetCrittersDistantion(mob, crits[i]));
+            // continue;
+        else
+        {
+            if(crits[i].Stat[ST_NPC_ROLE] != ROLE_MOB_DYNAMIC)
+			{
+				// attack
+				mob.Say(SAY_NORM_ON_HEAD, "Attack, Distance const: " + dist + ", Dinstance var: " + GetCrittersDistantion(mob, crits[i]));
+		
+				NpcPlane@ plane = mob.GetCurPlane();
+				if((valid(plane)) && (plane.Identifier != AI_PLANE_ATTACK))
+					mob.DropPlanes();
+
+				mob.AddEnemyInStack(crits[i].Id);
+				AddAttackPlane(mob, 0, crits[i]);
+				return;
+			}
+        }
+    }
+	
+    if(crits.length() > 0)
+    {
+        MoveMob(mob, false);
+		mob.Wait(IDLE_ALERTED_2);
+		// mob.Say(SAY_NORM_ON_HEAD, "Found player but not attack yet! Distance: " + dist + ", ");
+    }
+    else
+	// NpcPlane@ plane = mob.GetCurPlane();
+	
+	// if((Random(1, 100) == 1) && mob.IsNoPlanes())
+    {
+        MoveMob(mob, false);
+        mob.Say(SAY_NORM_ON_HEAD, "Don't care");
+        mob.Wait(IDLE_ALERTED_2);
+    }
+	
+}
+
+void _DontMove(Critter& mob)
+{
+	// the great optimizer
+    if(!mob.IsLife())
+    {
+		mob.Wait(IDLE_ALERTED);
+        return;
+    }
+	
+	mob.SetEvent(CRITTER_EVENT_SHOW_CRITTER, null);
+	
+	if(Random(0, 50) == 0)
+	{
+		/* NpcPlane@ plane = mob.GetCurPlane();
+		if((valid(plane)) && ((plane.Identifier != AI_PLANE_ATTACK))) */
+			MoveMobToFreeHex(mob);
+	}
+
+    // check critters in sight
+     array<Critter@> crits;
+    // get visible players
+    uint            num = mob.GetCritters(false, FIND_ONLY_PLAYERS | FIND_LIFE_AND_KO, crits);
+
+    // mob.Say(SAY_NORM_ON_HEAD, ""+num);
+    // check distance
+    uint dist = GetDistance(mob);
+    for(uint i = 0; i < num; i++)
+    {
+		if(GetCrittersDistantion(mob, crits[i]) > dist)
+			mob.Say(SAY_NORM_ON_HEAD, "Idling, Distance const: " + dist + ", Dinstance var: " + GetCrittersDistantion(mob, crits[i]));
+            // continue;
+        else
+        {
+            if(crits[i].Stat[ST_NPC_ROLE] != ROLE_MOB_DYNAMIC)
+			{
+				// attack
+				mob.Say(SAY_NORM_ON_HEAD, "Attack, Distance const: " + dist + ", Dinstance var: " + GetCrittersDistantion(mob, crits[i]));
+		
+				NpcPlane@ plane = mob.GetCurPlane();
+				if((valid(plane)) && (plane.Identifier != AI_PLANE_ATTACK))
+					mob.DropPlanes();
+
+				mob.AddEnemyInStack(crits[i].Id);
+				AddAttackPlane(mob, 0, crits[i]);
+				return;
+			}
+        }
+    }
+	
+    if(crits.length() > 0)
+    {
+        //MoveMob(mob, false);
+		mob.Wait(IDLE_ALERTED_2);
+		// mob.Say(SAY_NORM_ON_HEAD, "Found player but not attack yet! Distance: " + dist + ", ");
+    }
+    else
+	// NpcPlane@ plane = mob.GetCurPlane();
+	
+	// if((Random(1, 100) == 1) && mob.IsNoPlanes())
+    {
+        //MoveMob(mob, false);
+        mob.Say(SAY_NORM_ON_HEAD, "Don't care");
+        mob.Wait(IDLE_ALERTED_2);
+    }
+	
+}
+
+int GetDistance(Critter& mob)
+{
+    // TODO: damaged eye??
+    int base = __LookNormal + 3 * mob.Stat[ST_PERCEPTION];
+	
+    return base / 2;
+}
+
+void MoveMob(Critter& mob, bool run)
+{
+    int dist = Random(0, (mob.Stat[ST_NPC_ROLE] % 100 / 10));
+    if(dist == 0)
+    {
+        mob.MoveRandom();
+    }
+    else
+    {
+        // bool AddWalkPlane(Critter& npc, uint priory, uint16 hexX, uint16 hexY, uint8 dir, bool run, uint8 cut)
+        uint16 hexX = mob.HexX;
+        uint16 hexY = mob.HexY;
+        mob.GetMap().MoveHexByDir(hexX, hexY, Random(0, 5), dist);
+        AddWalkPlane(mob, 0, hexX, hexY, 0xff, run, 0);
+    }
+}
+
+void _MobShowCritterAggr(Critter& mob, Critter& showCrit)
+{
+	Map@ map = mob.GetMap();
+	if(!valid(map))
+		return;
+		
+	Location@ loc = map.GetLocation();
+	
+	if((((!IsTown(map)) && showCrit.IsLife()) || (showCrit.IsPlayer() && showCrit.IsLife()) || (loc.IsGuarded() && showCrit.IsLife())) && showCrit.Stat[ST_NPC_ROLE] != ROLE_MOB_DYNAMIC)
+	{
+		uint 			dist = GetDistance(mob);
+		if(GetCrittersDistantion(mob, showCrit) <= dist)
+		{
+			
+		
+				mob.Say(SAY_NORM_ON_HEAD, "Attack when walking.");
+		
+				// NpcPlane@ plane = mob.GetCurPlane();
+				// if((valid(plane)) && (plane.Identifier != AI_PLANE_ATTACK))
+					// mob.DropPlanes();
+
+				mob.AddEnemyInStack(showCrit.Id);
+				AddAttackPlane(mob, 0, showCrit);
+			
+		}
+	}
+}
